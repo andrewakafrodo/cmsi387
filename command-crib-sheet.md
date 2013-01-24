@@ -107,7 +107,7 @@ Source: http://www.thegeekstuff.com/2010/04/unix-tar-command-examples/
     tar: Removing leading '/' from member names
     a Users/andrewkowalczyk/Desktop/Untitled.pdf
 
-In this invoking, I told the tar program to achrive a file on my desktop called "Untitled.pdf" into my current directory and name that archive file "ASSIGNMENT0124.tar". This archives the file making it into a "smaller" size.
+In this invoking, I told the tar program to archive a file on my desktop called "Untitled.pdf" into my current directory and to name that archive file "ASSIGNMENT0124.tar". This archives the file making it into a "smaller" size.
 
 ### 9. ssh-keygen
 
