@@ -24,13 +24,23 @@ This example was taken from http://www.thegeekstuff.com/2012/05/traceroute-examp
 The `whoami` command is used for printing the user name associated with the current effective user id. This is the same as id -un.
 
 Source: http://linux.about.com/library/cmd/blcmdl1_whoami.htm
-
+    
     frodosamoa:csmi387 andrewkowalczyk$ whoami
     andrewkowalczyk
 
 This command asks the computer, in a quite literal sense, "Who am I?". The computer responds with the name of the current user.
 
 ### 3. `crontab`
+
+The `crontab` file contains a list of Linux commands to be performed at specific times. A system administrator can use crontab as an automatic timer to trigger the initiation of important jobs.
+
+Sources: http://linux.about.com/od/commands/l/blcmdl5_crontab.htm
+http://www.thegeekstuff.com/2009/06/15-practical-crontab-examples/
+
+    59 23 31 * * sudo rm -rf ~/.Trash
+    30 7 3,9,20 1,6 * /usr/bin/newsyslog
+
+Instead of a output of a program, I showed an example of the `crontab` file. The format for any `crontab` file is as follows: `MIN HOUR DOM MON DOW CMD`. Minute field, then hour field, day of month, day of the week, then the command. The ranges are as follows: 0-59, 0-23, 1-31, 1-12, 0-6, then any command to be executed. In my file, one can see that the first line would empty the trash every month on the last day at 23:59. The second line of code would rotate logs at 7:30AM on the 3rd, 9th, and 20th day in the months of January and June.
 
 ### 4. `tcpdump`
 
