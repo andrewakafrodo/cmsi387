@@ -6,7 +6,7 @@ The `traceroute` command is a program that shows you the route over the network 
 
 Source: http://www.exit109.com/~jeremy/news/providers/traceroute.html
 
-    frodosamoa:~ andrewrkowalczyk$ traceroute google.com
+    frodosamoa:csmi387 andrewrkowalczyk$ traceroute google.com
     traceroute to google.com (74.125.236.132), 30 hops max, 60 byte packets
     1  220.224.141.129 (220.224.141.129)  89.174 ms  89.094 ms  89.054 ms
     2  115.255.239.65 (115.255.239.65)  109.037 ms  108.994 ms  108.963 ms
@@ -25,7 +25,7 @@ The `whoami` command is used for printing the user name associated with the curr
 
 Source: http://linux.about.com/library/cmd/blcmdl1_whoami.htm
 
-    frodosamoa:~ andrewkowalczyk$ whoami
+    frodosamoa:csmi387 andrewkowalczyk$ whoami
     andrewkowalczyk
 
 This command asks the computer, in a quite literal sense, "Who am I?". The computer responds with the name of the current user.
@@ -40,7 +40,7 @@ The command `uptime` prints out how long the system has been running.
 
 Source: http://linux.about.com/library/cmd/blcmdl1_uptime.htm
 
-    frodosamoa:~ andrewkowalczyk$ uptime
+    frodosamoa:csmi387 andrewkowalczyk$ uptime
     20:55  up 31 days, 12:15, 2 users, load averages: 1.10 1.00 1.01
 
 This gives a one line display of the following information. The current time, how long the system has been running, how many users are currently logged on, and the system load averages for the past 1, 5, and 15 minutes.
@@ -153,3 +153,15 @@ Source: http://www.thegeekstuff.com/2008/11/3-steps-to-perform-ssh-login-without
 In this invocation, I created a new ssh keygen in the `/Users/andrewkowalczyk/.ssh/id_rsa` file. I enter the passphrase to make the encrytion unique and once that and the public key has been saved, the command prints out the public key and a more visual representation of the keygen by making a randomart image representation. 
 
 ### 10. `which`
+
+The `which` command takes a list of program names and looks for the files that run when these names are given as commands.
+
+Source: http://unixhelp.ed.ac.uk/commanz/cmd5.1.html
+
+    frodosamoa:csmi387 andrewkowalczyk$ which traceroute hexdump csh java
+    /usr/sbin/traceroute
+    /usr/bin/hexdump
+    /bin/csh
+    /usr/bin/java
+    
+In this invocation, I give `which` four different commands. In this case, they are `traceroute`, `hexdump`, `csh`, and `java`. It then prints out 4 lines, one for each argument and shows where the file is. If a certain command is not found, the command prints out nothing for that certain command.
