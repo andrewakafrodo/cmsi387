@@ -51,7 +51,8 @@ The command `nslookup` is used to question, or get more inforamtion about domain
 
 Source: http://linux.about.com/od/commands/l/blcmdl8_nslooku.htm
 
-6(a) Interactive
+*6(a) Interactive*
+    
     frodosamoa:csmi387 andrewkowalczyk$ nslookup
     > reddit.com
     Server:		157.242.6.5
@@ -81,7 +82,7 @@ Source: http://linux.about.com/od/commands/l/blcmdl8_nslooku.htm
     Address: 66.155.9.238
     > exit 
 
-6(b) Non-interactive
+*6(b) Non-interactive*
 
     frodosamoa:csmi387 andrewkowalczyk$ nslookup reddit.com
     Server:		157.242.6.5
@@ -137,6 +138,6 @@ Source: http://www.thegeekstuff.com/2008/11/3-steps-to-perform-ssh-login-without
     |  .              |
     +-----------------+
     
-In this invocation, I created a new ssh keygen in the `/Users/andrewkowalczyk/.ssh/id_rsa` file.
+In this invocation, I created a new ssh keygen in the `/Users/andrewkowalczyk/.ssh/id_rsa` file. I enter the passphrase to make the encrytion unique and once that and the public key has been saved, the command prints out the public key and a more visual representation of the keygen by making a randomart image representation. 
 
 ### 10. `which`
