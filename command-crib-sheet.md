@@ -51,7 +51,7 @@ The command "nslookup" is used to question, or get more inforamtion about domain
 
 Source: http://linux.about.com/od/commands/l/blcmdl8_nslooku.htm
 
-6(a)
+6(a) Interactive
     frodosamoa:csmi387 andrewkowalczyk$ nslookup
     > reddit.com
     Server:		157.242.6.5
@@ -81,7 +81,7 @@ Source: http://linux.about.com/od/commands/l/blcmdl8_nslooku.htm
     Address: 66.155.9.238
     > exit 
 
-6(b)
+6(b) Non-interactive
 
     frodosamoa:csmi387 andrewkowalczyk$ nslookup reddit.com
     Server:		157.242.6.5
@@ -99,9 +99,15 @@ I provided an example of both the interactive mode and the non-interactive mode.
 
 ### 8. tar
 
-On Unix platform, the "tar" command is the primary archiving utility. Understanding various tar command options will help you master the archive file manipulation.
+On Unix platform, the "tar" command is the primary archiving utility. Understanding various tar command options will help you master the archive file manipulation. This command can create tar archives (with gzip and bzip compression), extract a single files or directories, view tar archive contents,  orvalidate the integrity of a tar archive.
 
 Source: http://www.thegeekstuff.com/2010/04/unix-tar-command-examples/
+
+    frodosamoa:csmi387 andrewkowalczyk$ tar cvf ASSINGMENT0124.tar ~/Desktop/Untitled.pdf
+    tar: Removing leading '/' from member names
+    a Users/andrewkowalczyk/Desktop/Untitled.pdf
+
+In this invoking, I told the tar program to achrive a file on my desktop called "Untitled.pdf" into my current directory and name that archive file "ASSIGNMENT0124.tar". This archives the file making it into a "smaller" size.
 
 ### 9. ssh-keygen
 
