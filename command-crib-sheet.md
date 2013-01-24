@@ -40,9 +40,16 @@ http://www.thegeekstuff.com/2009/06/15-practical-crontab-examples/
     59 23 31 * * sudo rm -rf ~/.Trash
     30 7 3,9,20 1,6 * /usr/bin/newsyslog
 
-Instead of a output of a program, I showed an example of the `crontab` file. The format for any `crontab` file is as follows: `MIN HOUR DOM MON DOW CMD`. Minute field, then hour field, day of month, day of the week, then the command. The ranges are as follows: 0-59, 0-23, 1-31, 1-12, 0-6, then any command to be executed. In my file, one can see that the first line would empty the trash every month on the last day at 23:59. The second line of code would rotate logs at 7:30AM on the 3rd, 9th, and 20th day in the months of January and June.
+Instead of a output of a program, I showed an example of the `crontab` file. The format for any `crontab` file is as follows: `MIN HOUR DOM MON DOW CMD`. Minute field, then hour field, day of month, day of the week, then the command. The ranges are as follows: `0-59, 0-23, 1-31, 1-12, 0-6`, then any command to be executed. In my file, one can see that the first line would empty the trash every month on the last day at 23:59. The second line of code would rotate logs at 7:30AM on the 3rd, 9th, and 20th day in the months of January and June.
 
-### 4. `tcpdump`
+### 4. `killall`
+
+`killall` kills proceses by name.
+
+     frodosamoa:csmi387 andrewkowalczyk$ defaults write com.apple.Finder AppleShowAllFiles TRUE
+     frodosamoa:csmi387 andrewkowalczyk$ killall Finder
+
+In this invocation, we are changing the defaults by allowing hidden files to be seen. In order for this change to occur, one needs to kill Finder, which is done by `killall`.
 
 ### 5. `uptime`
 
