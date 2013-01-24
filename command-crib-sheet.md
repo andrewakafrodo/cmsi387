@@ -19,8 +19,6 @@ Source: http://www.exit109.com/~jeremy/news/providers/traceroute.html
 
 This example was taken from http://www.thegeekstuff.com/2012/05/traceroute-examples/ due to LMU's network having interference with the `traceroute` command. This invocation was aiming to find all the "steps" in between my computer and google.com. Since the internet is a vast network of man connections, being able to trace where your connection goes is useful. The first line of the output shows the the target I am trying to reach, that target's IP address, the maximum number of hops, or connections, that will be allowed, and the size of the packets that will be sent. The next lines show each individual connection with the name of the system which is determined by the DNS, that individual system's IP address, and three different times. Each time specifes the time it took for a round trip to take for the packets that were sent. This will happen for eash step until the final destination is reached, as one can see the IP addresses in the first and last line of the output are the same.
 
-##
-
 ### 2. `whoami`
 
 The `whoami` command is used for printing the user name associated with the current effective user id. This is the same as id -un.
