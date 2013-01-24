@@ -98,6 +98,18 @@ I provided an example of both the interactive mode and the non-interactive mode.
 
 ### 7. `xargs`
 
+The xargs utility reads space, tab, newline and end-of-file delimited strings from the standard input and executes utility with the strings as arguments.
+
+Source: http://www.folkstalk.com/2012/07/xargs-command-examples-in-unix-linux.html
+
+    frodosamoa:example andrewkowalczyk$ ls
+    IMG_7821.jpg    IMG_7822.jpg	IMG_7823.jpg	IMG_7824.jpg
+    frodosamoa:example andrewkowalczyk$ ls *.jpg | xargs rm
+    frodosamoa:example andrewkowalczyk$ ls
+    frodosamoa:example andrewkowalczyk$
+
+This invocation removes all the files with ".tmp" suffix. As you can see, comparing the lists of the files in each directory one can see how this command works.
+
 ### 8. `tar`
 
 On Unix platform, the `tar` command is the primary archiving utility. Understanding various tar command options will help you master the archive file manipulation. This command can create tar archives (with gzip and bzip compression), extract a single files or directories, view tar archive contents,  orvalidate the integrity of a tar archive.
