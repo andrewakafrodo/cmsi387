@@ -218,6 +218,9 @@ Here is the text dump from the command.
 #### 2. Run something lengthy (`ping`, `vm_stat/vmstat`, loooooong download, finding the quadrillionth prime number…) inside `screen`; logout of that computer entirely, login again, and reconnect to screen to prove to yourself that the process has continued to run without interruption.
 * Submit screenshots of your long-running command before you logged out, then after you reconnected to it.
 
+![Screen Example](/homework/shell-gymnastics/ScreenExample1.png)
+![Screen Example](/homework/shell-gymnastics/ScreenExample2.png)
+![Screen Example](/homework/shell-gymnastics/ScreenExample3.png)
 
 #### 3. Learn how to use `du`, which tells you how much disk space you’re using in a given directory.
 
@@ -238,7 +241,7 @@ Here is the text dump from the command.
 	 
 My `~/Music/` folder is taking up the most space with 232 gigabytes of disk space.
 
-* Submit a command that displays only the disk usage of directories matching some regular expression.  Hint: `|`.
+* Submit a command that displays only the disk usage of directories matching some regular expression.  *Hint:* `|`.
 
 	frodosamoa:Music andrewkowalczyk$ du -sh * | grep -i heart
 	2.9M    Braveheart Soundtrack
