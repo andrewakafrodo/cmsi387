@@ -217,11 +217,11 @@ Submit a screenshot of your successful connection to the remote service via the 
 
 #### 2. Run something lengthy (`ping`, `vm_stat/vmstat`, loooooong download, finding the quadrillionth prime number…) inside `screen`; logout of that computer entirely, login again, and reconnect to screen to prove to yourself that the process has continued to run without interruption.
 
+Submit screenshots of your long-running command before you logged out, then after you reconnected to it.
+
 ![Screen Example](https://raw.github.com/frodosamoa/csmi387/master/homework/shell-gymnastics/ScreenExample1.png)
 ![Screen Example](https://raw.github.com/frodosamoa/csmi387/master/homework/shell-gymnastics/ScreenExample2.png)
 ![Screen Example](https://raw.github.com/frodosamoa/csmi387/master/homework/shell-gymnastics/ScreenExample3.png)
-
-Submit screenshots of your long-running command before you logged out, then after you reconnected to it.
 
 #### 3. Learn how to use `du`, which tells you how much disk space you’re using in a given directory.
 
