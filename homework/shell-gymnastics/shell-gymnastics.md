@@ -212,49 +212,57 @@ Here is the text dump from the command.
 ## I/O and File "Gymnastics"
 
 #### 1. Create an `ssh` tunnel from this computer to a service that is visible from another `ssh`-capable computer (but, of course, not necessarily visible from the computer you’re using). Then, access that service from your computer through localhost and the tunneled port number.
-* Submit a screenshot of your successful connection to the remote service via the tunnel.
 
+Submit a screenshot of your successful connection to the remote service via the tunnel.
 
 #### 2. Run something lengthy (`ping`, `vm_stat/vmstat`, loooooong download, finding the quadrillionth prime number…) inside `screen`; logout of that computer entirely, login again, and reconnect to screen to prove to yourself that the process has continued to run without interruption.
-* Submit screenshots of your long-running command before you logged out, then after you reconnected to it.
 
+<<<<<<< HEAD
 ![Screen Example](/homework/shell-gymnastics/ScreenExample1.png)
 ![Screen Example](/homework/shell-gymnastics/ScreenExample2.png)
 ![Screen Example](/homework/shell-gymnastics/ScreenExample3.png)
+=======
+Submit screenshots of your long-running command before you logged out, then after you reconnected to it.
+>>>>>>> e4c94632d75ff0bda24fd4ea826c1fb14c0fb11a
 
 #### 3. Learn how to use `du`, which tells you how much disk space you’re using in a given directory.
 
-* Which first-level subdirectory in `~` is taking up the most space? Submit the command that includes this information in as little output as possible.
+Which first-level subdirectory in `~` is taking up the most space? Submit the command that includes this information in as little output as possible.
 	
-	frodosamoa:~ andrewkowalczyk$ du -sh *
-	  0B    Applications
-	 29G    Desktop
-	1.0G    Documents
-	 18G    Downloads
-	262M    Dropbox
-	 25G    Library
-	368K    Movies
-	232G    Music
-	 54G    Pictures
-	  0B    Public
-	 24K    Sites
+    frodosamoa:~ andrewkowalczyk$ du -sh *
+      0B    Applications
+     29G    Desktop
+    1.0G    Documents
+     18G    Downloads
+    262M    Dropbox
+     25G    Library
+    368K    Movies
+    232G    Music
+     54G    Pictures
+      0B    Public
+     24K    Sites
 	 
 My `~/Music/` folder is taking up the most space with 232 gigabytes of disk space.
 
+<<<<<<< HEAD
 * Submit a command that displays only the disk usage of directories matching some regular expression.  *Hint:* `|`.
+=======
+Submit a command that displays only the disk usage of directories matching some regular expression.  Hint: `|`.
+>>>>>>> e4c94632d75ff0bda24fd4ea826c1fb14c0fb11a
 
-	frodosamoa:Music andrewkowalczyk$ du -sh * | grep -i heart
-	2.9M    Braveheart Soundtrack
-	 71M    Heart
-	150M    Tom Petty & The Heartbreakers
+    frodosamoa:Music andrewkowalczyk$ du -sh * | grep -i heart
+    2.9M    Braveheart Soundtrack
+     71M    Heart
+    150M    Tom Petty & The Heartbreakers
 
 I went into my music folder and looked for the disk space of artists who had "heart" in their name, case-insensitive.
 
 #### 4. On a Keck lab machine, create a file within `~`. Run `ls -i` to determine that file’s inode number. Move this file to another directory inside  `~`, then move it to `/tmp`, then move it back to your home directory. After each move, use `ls -i` to see its inode number.
 
-* Submit the output of `ls -i` both right after you created the file and after each file move.
+Submit the output of `ls -i` both right after you created the file and after each file move.
 
-* Submit the piped commands that you would type in order to filter out all lines of `ls -i`’s output except for the file that you created.
+Submit the piped commands that you would type in order to filter out all lines of `ls -i`’s output except for the file that you created.
 
 #### 5. Pop a few storage devices (CD, DVD, flash drive, network drive, etc.) into your computer. Figure out the mount points for each device.
-* Submit the output provided by the command (or a screenshot showing the information, if you used a GUI tool).
+ 
+Submit the output provided by the command (or a screenshot showing the information, if you used a GUI tool).
