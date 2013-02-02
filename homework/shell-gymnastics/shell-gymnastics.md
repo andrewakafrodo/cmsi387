@@ -255,8 +255,52 @@ I went into my music folder and looked for the disk space of artists who had "he
 
 Submit the output of `ls -i` both right after you created the file and after each file move.
 
+	akowalc1@ab201:~$ vi temp.txt
+	akowalc1@ab201:~$ ls -i
+	 525491 Prime.class   526327 Prime.java   525845 public_html  1450143 repos   526904 temp.txt
+	akowalc1@ab201:~$ mv temp.txt ~/public_html
+	akowalc1@ab201:~$ cd public_html
+	akowalc1@ab201:~/public_html$ ls -i
+	 525846 Home  525876 index.html  526904 temp.txt
+	akowalc1@ab201:~/public_html$ mv temp.txt /tmp
+	akowalc1@ab201:~/public_html$ cd /tmp
+	akowalc1@ab201:/tmp$ ls -i
+	2235258 aptitude-root.23605:Pyevlh  1972215 hsperfdata_www-data  1972357 tempfile.4.tmp
+	1972277 hsperfdata_akowalc1         1972432 mongodb-27017.sock   1972358 tempfile.5.tmp
+	1972360 hsperfdata_awon             1972433 mongodb-28017.sock   1972757 tempfile.6.tmp
+	1972276 hsperfdata_jpiatos          2235247 pear                 1972758 tempfile.7.tmp
+	1972220 hsperfdata_pdorin           1972274 tempfile.2.tmp       1972221 tempfile.tmp
+	1972275 hsperfdata_ray              1972278 tempfile.3.tmp       1972361 temp.txt
+	akowalc1@ab201:/tmp$ mv temp.txt ~
+	akowalc1@ab201:/tmp$ cd
+	akowalc1@ab201:~$ ls -i
+	 525491 Prime.class   526327 Prime.java   525845 public_html  1450143 repos   525844 temp.txt
+
 Submit the piped commands that you would type in order to filter out all lines of `ls -i`’s output except for the file that you created.
+
+	akowalc1@ab201:~$ vi temp.txt
+	akowalc1@ab201:~$ ls -i | grep temp.txt
+	 526902 temp.txt
+	akowalc1@ab201:~$ mv temp.txt ~/public_html
+	akowalc1@ab201:~$ cd public_html
+	akowalc1@ab201:~/public_html$ ls -i | grep temp.txt
+	526902 temp.txt
+	akowalc1@ab201:~/public_html$ mv temp.txt /tmp
+	akowalc1@ab201:~/public_html$ cd /tmp
+	akowalc1@ab201:/tmp$ ls -i | grep temp.txt
+	1972361 temp.txt
+	akowalc1@ab201:/tmp$ mv temp.txt ~
+	akowalc1@ab201:/tmp$ cd
+	akowalc1@ab201:~$ ls -i | grep temp.txt
+	 525844 temp.txt
+
 
 #### 5. Pop a few storage devices (CD, DVD, flash drive, network drive, etc.) into your computer. Figure out the mount points for each device.
  
 Submit the output provided by the command (or a screenshot showing the information, if you used a GUI tool).
+
+	frodosamoa:~ andrewkowalczyk$ mount | grep Volumes
+	/dev/disk1s1 on /Volumes/NO NAME (msdos, local, nodev, nosuid, noowners)
+	/dev/disk2 on /Volumes/Tree Of Life (cddafs, local, nodev, nosuid, read-only, noowners)
+	
+I mounted a USB drive and a CD by a band named Yodelice called Tree of Life.
