@@ -215,6 +215,47 @@ Here is the text dump from the command.
 
 Submit a screenshot of your successful connection to the remote service via the tunnel.
 
+    frodosamoa:csmi387 andrewkowalczyk$ ssh -L 4444:10.5.64.77:80 akowalc1@my.cs.lmu.edu
+    akowalc1@my.cs.lmu.edu's password: 
+    Welcome to Ubuntu 11.10 (GNU/Linux 3.0.0-12-server x86_64)
+
+     * Documentation:  https://help.ubuntu.com/11.10/serverguide/C
+
+     System information as of Sat Feb  2 15:56:48 PST 2013
+
+     System load:    0.0               Processes:           127
+     Usage of /home: 1.4% of 45.83GB   Users logged in:     3
+     Memory usage:   22%               IP address for eth0: 157.242.71.21
+     Swap usage:     0%
+
+     Graph this data and manage this system at https://landscape.canonical.com/
+    New release '12.04 LTS' available.
+    Run 'do-release-upgrade' to upgrade to it.
+
+                  _     __  __   _   _        ___   __  __   ___   ___  
+                 | |   |  \/  | | | | |      / __| |  \/  | / __| |_ _| 
+                 | |__ | |\/| | | |_| |     | (__  | |\/| | \__ \  | |  
+                 |____||_|  |_|  \___/       \___| |_|  |_| |___/ |___| 
+
+                           Rule #1: Read The Manual.
+                           Rule #2: Google Is Your Friend.
+
+                  - Manage Your Account:  https://secure.cs.lmu.edu
+                  - Change Password via Command Line: yppasswd
+                  - BASH Quick Reference: http://www.cs.lmu.edu/bash.pdf
+                  - VIM  Quick Reference: http://www.cs.lmu.edu/vim.pdf
+                  - Printer Drivers:      http://www.cs.lmu.edu/drivers
+                  - How To List Files: ls, ls -la
+                  - How To Change Directories: cd [directory-name]
+                  - How To Edit Files: nano, vim, emacs
+                  - (Win) How To Transfer Files: WinSCP, Filezilla
+                  - (Win) How To SSH Remotely: Putty, Cygwin
+                  - (Mac) How To Transfer Files: Filezilla, Cyberduck, Fugu
+                  - (Mac) How To SSH Remotely: Terminal
+
+    Last login: Sat Feb  2 15:49:56 2013 from 10.22.150.144
+
+
 #### 2. Run something lengthy (`ping`, `vm_stat/vmstat`, loooooong download, finding the quadrillionth prime number…) inside `screen`; logout of that computer entirely, login again, and reconnect to screen to prove to yourself that the process has continued to run without interruption.
 
 Submit screenshots of your long-running command before you logged out, then after you reconnected to it.
