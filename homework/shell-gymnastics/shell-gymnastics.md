@@ -255,6 +255,7 @@ Submit a screenshot of your successful connection to the remote service via the 
 
     Last login: Sat Feb  2 15:49:56 2013 from 10.22.150.144
 
+![Screen Example](https://raw.github.com/frodosamoa/csmi387/master/homework/shell-gymnastics/SSHExample.png)
 
 #### 2. Run something lengthy (`ping`, `vm_stat/vmstat`, loooooong download, finding the quadrillionth prime number…) inside `screen`; logout of that computer entirely, login again, and reconnect to screen to prove to yourself that the process has continued to run without interruption.
 
