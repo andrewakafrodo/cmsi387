@@ -101,6 +101,15 @@ Here is the commands I issued for this question.
     frodosamoa:Desktop andrewkowalczyk$ top -o rsize
     frodosamoa:Desktop andrewkowalczyk$ top -o vsize
 
+<!-- JD: These got you the correct information, but they're more the "interactive" way.
+         Nothing wrong with this per se, but part of the point of the assignment is still
+         improved command line skills.  One practical implication: let's say you wanted
+         the system to generate an automated hourly report of the program using the most
+         real and virtual memory---this is tougher to do with an interactive program.
+         But, with the right command sequence, you will automatically get a text file
+         with exactly this information!
+-->
+
 Here is the text dump from the command.
 
 	Processes: 92 total, 5 running, 10 stuck, 77 sleeping, 520 threads                                    14:33:34
@@ -177,6 +186,12 @@ After logging on, I saw that the users `sverhass` and `awon` were also logged on
 Here is command I issued for this question.
 
     akowalc1@ab201:~$ ps aux | grep -v "akowalc1" | grep -v "root"
+
+<!-- JD: Note here that your grep directives will omit anything matching the pattern,
+         regardless of whether this pattern indicates the user or is anywhere else
+         in the line.  For example, if, say, sverhass had "grep akowalc1" running,
+         that would not have shown up in this list even though it should have.
+-->
 
 Here is the text dump from the command.
 
@@ -283,6 +298,11 @@ Which first-level subdirectory in `~` is taking up the most space? Submit the co
      24K    Sites
 	 
 My `~/Music/` folder is taking up the most space with 232 gigabytes of disk space.
+
+<!-- JD: Indeed it does, but you had to scan the list!  Can you form a du sequence
+         that pulls out a line with just Music for you, without making you have
+         to eyeball things yourself?
+-->
 
 Submit a command that displays only the disk usage of directories matching some regular expression.  *Hint:* `|`.
 
