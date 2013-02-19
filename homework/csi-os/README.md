@@ -6,23 +6,23 @@
 
 On the latest Intel Macs, the Pre-OS software is actually inaccessible. It used to be the case that if the user pressed `⌘` + `option` + `o` + `f`, the Open Firmware interface would be booted. Now the closest thing is called verbose mode or single user mode and are accessed by pressing `⌘` + `v` and `⌘` + `s` respectively. Here is a picture of verbose mode:
 
-![MacVerbose](https://raw.github.com/frodosamoa/csmi387/master/homework/csi-os/MacVerbose.png)
+![MacVerbose](https://raw.github.com/frodosamoa/csmi387/master/homework/csi-os/MacVerbose.png?login=frodosamoa&token=84f45b985f10c0d9b171ecffb46425f7)
 
 #### Kernel file(s)
 
-![MacKernel](https://raw.github.com/frodosamoa/csmi387/master/homework/csi-os/MacFirstProcess.png?login=frodosamoa&token=53cf794bbdd6e97b0a299947647029ad)
+![MacKernel](https://raw.github.com/frodosamoa/csmi387/master/homework/csi-os/MacKernel.png?login=frodosamoa&token=b7813be17b800adaa3691494a09a58fb)
 
 #### Startup scripts and/or configuration files
 
-![MacConfigurationFiles](https://raw.github.com/frodosamoa/csmi387/master/homework/csi-os/MacConfigurationFiles.png)
+![MacConfigurationFiles](https://raw.github.com/frodosamoa/csmi387/master/homework/csi-os/MacConfigurationFiles.png?login=frodosamoa&token=476a0bdd672bf48cadd7cd6371613cce)
 
 #### The "first" process
 
-![MacFirstProcess](https://raw.github.com/frodosamoa/csmi387/master/homework/csi-os/MacFirstProcess.png)
+![MacFirstProcess](https://raw.github.com/frodosamoa/csmi387/master/homework/csi-os/MacFirstProcess.png?login=frodosamoa&token=53cf794bbdd6e97b0a299947647029ad)
 
 #### Network settings
 
-![MacNetwork](https://raw.github.com/frodosamoa/csmi387/master/homework/csi-os/MacNetwork.png)
+![MacNetwork](https://raw.github.com/frodosamoa/csmi387/master/homework/csi-os/MacNetwork.png?login=frodosamoa&token=368dd94ae55944261897bdbe1f9a3f0a)
 
 
 ## Windows
