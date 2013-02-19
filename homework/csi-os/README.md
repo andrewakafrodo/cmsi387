@@ -10,7 +10,7 @@ On the latest Intel Macs, the Pre-OS software is actually inaccessible. It used 
 
 #### Kernel file(s)
 
-![MacKernel](https://raw.github.com/frodosamoa/csmi387/master/homework/csi-os/MacKernel.png)
+![MacKernel](https://raw.github.com/frodosamoa/csmi387/master/homework/csi-os/MacFirstProcess.png?login=frodosamoa&token=53cf794bbdd6e97b0a299947647029ad)
 
 #### Startup scripts and/or configuration files
 
