@@ -53,7 +53,11 @@ On the latest Intel Macs, the Pre-OS software is actually inaccessible. It used 
 
 #### Kernel file(s)
 
+![LinuxKernel](https://raw.github.com/frodosamoa/csmi387/master/homework/csi-os/LinuxKernel.png?login=frodosamoa&token=12ce2b4b420c534be57c04246866bcd7)
+
 #### Startup scripts and/or configuration files
+
+![LinuxConfigurationFiles](https://raw.github.com/frodosamoa/csmi387/master/homework/csi-os/LinuxConfigurationFiles.png?login=frodosamoa&token=fc13ea30840ab000dffa1f21ede6a18c)
 
 #### The "first" process
 
