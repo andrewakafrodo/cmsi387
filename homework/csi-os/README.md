@@ -60,3 +60,5 @@ On the latest Intel Macs, the Pre-OS software is actually inaccessible. It used 
 ![LinuxFirstProcess](https://raw.github.com/frodosamoa/csmi387/master/homework/csi-os/LinuxFirstProcess.png?login=frodosamoa&token=66a893da7814c2b94ac54d458deb72b7)
 
 #### Network settings
+
+![LinuxNetwork](https://raw.github.com/frodosamoa/csmi387/master/homework/csi-os/LinuxNetwork.png?login=frodosamoa&token=9e277aeed067f7985629b87ab979e923)
