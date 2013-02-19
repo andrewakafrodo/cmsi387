@@ -35,6 +35,8 @@ On the latest Intel Macs, the Pre-OS software is actually inaccessible. It used 
 
 #### Startup scripts and/or configuration files
 
+![WindowsStartupScripts](https://raw.github.com/frodosamoa/csmi387/master/homework/csi-os/WindowsStartupScripts.png?login=frodosamoa&token=fb79cdbc49602febc5f4304c0a6b73cb)
+
 #### The "first" process
 
 ![WindowsFirstProcess](https://raw.github.com/frodosamoa/csmi387/master/homework/csi-os/WindowsFirstProcess.png?login=frodosamoa&token=d428b63336004de53f4eedfa755a3d1f)
@@ -54,5 +56,7 @@ On the latest Intel Macs, the Pre-OS software is actually inaccessible. It used 
 #### Startup scripts and/or configuration files
 
 #### The "first" process
+
+![LinuxFirstProcess](https://raw.github.com/frodosamoa/csmi387/master/homework/csi-os/LinuxFirstProcess.png?login=frodosamoa&token=66a893da7814c2b94ac54d458deb72b7)
 
 #### Network settings
