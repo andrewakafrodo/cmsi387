@@ -1,17 +1,25 @@
-#include <unistd.h>
+/**
+ * 64BIT 64BIT 64BIT 64BIT 64BIT 64BIT 64BIT 64BIT
+ * This program demonstrates invocation of the rmdir
+ * system call (84) using the syscall function.
+ */
+
 #include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <unistd.h>  
 
 int main(int argc, char *argv[]) {
-  // We demonstrate the use of command-line arguments here.
-  // But note the non-existent error handling (all the better
-  // to illustrate the error code below).
-  int result = syscall(39, argv[1], 0777);
 
-  // A result of -1 means that something went wrong.  Otherwise,
-  // check for your new directory!
+  // I use command-line arguments for the command.
+
+  int result = syscall(84, argv[1]);
+
+  // A result of -1 means that something did not go as planned.
+  // I included <errno.h> to give detailed errors for the syscall.
+
   if (result == -1) {
-    // Don't use this error message in "real" programs. O_o
-    char *errorMessage = "That file does not exist\n";
-    syscall(4, 2, errorMessage, strlen(errorMessage));
+    printf("rmdir: failed to remove `%s`: %s\n", argv[1], strerror(errno));
   }
 }
