@@ -31,12 +31,17 @@ On the latest Intel Macs, the Pre-OS software is actually inaccessible. It used 
 
 #### Kernel file(s)
 
+![WindowsKernel](https://raw.github.com/frodosamoa/csmi387/master/homework/csi-os/WindowsKernel.png?login=frodosamoa&token=83583afe3cb12fa92fb8156c40069274)
+
 #### Startup scripts and/or configuration files
 
 #### The "first" process
 
+![WindowsFirstProcess](https://raw.github.com/frodosamoa/csmi387/master/homework/csi-os/WindowsFirstProcess.png?login=frodosamoa&token=d428b63336004de53f4eedfa755a3d1f)
+
 #### Network settings
 
+![WindowsNetwork](https://raw.github.com/frodosamoa/csmi387/master/homework/csi-os/WindowsNetwork.png?login=frodosamoa&token=f467fa6da4925904459cf71191a38583)
 
 ## Linux
 
