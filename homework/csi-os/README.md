@@ -29,6 +29,8 @@ On the latest Intel Macs, the Pre-OS software is actually inaccessible. It used 
 
 #### Pre-OS software (firmware, I/O subsystem, boot loader, etc.)
 
+![WindowsBIOS](https://raw.github.com/frodosamoa/csmi387/master/homework/csi-os/WindowsBIOS.png?login=frodosamoa&token=2f22def1814f63ac7e13c0505ae94c45)
+
 #### Kernel file(s)
 
 ![WindowsKernel](https://raw.github.com/frodosamoa/csmi387/master/homework/csi-os/WindowsKernel.png?login=frodosamoa&token=83583afe3cb12fa92fb8156c40069274)
@@ -48,8 +50,6 @@ On the latest Intel Macs, the Pre-OS software is actually inaccessible. It used 
 ## Linux
 
 #### Pre-OS software (firmware, I/O subsystem, boot loader, etc.)
-
-
 
 #### Kernel file(s)
 
