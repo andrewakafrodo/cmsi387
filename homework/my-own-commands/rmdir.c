@@ -1,7 +1,6 @@
 /**
- * 64BIT 64BIT 64BIT 64BIT 64BIT 64BIT 64BIT 64BIT
  * This program demonstrates invocation of the rmdir
- * system call (84) using the syscall function.
+ * system call (40) using the syscall function.
  */
 
 #include <string.h>
@@ -14,7 +13,7 @@ int main(int argc, char *argv[]) {
 
   // I use command-line arguments for the command.
 
-  int result = syscall(84, argv[1]);
+  int result = syscall(40, argv[1]);
 
   // A result of -1 means that something did not go as planned.
   // I included <errno.h> to give detailed errors for the syscall.
