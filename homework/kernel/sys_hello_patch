@@ -1,0 +1,45 @@
+diff --git Makefile Makefile
+index fba8f97..24cefcb 100644
+--- Makefile
++++ Makefile
+@@ -724,7 +724,7 @@ export mod_strip_cmd
+ 
+ 
+ ifeq ($(KBUILD_EXTMOD),)
+-core-y		+= kernel/ mm/ fs/ ipc/ security/ crypto/ block/
++core-y		+= kernel/ mm/ fs/ ipc/ security/ crypto/ block/ hello/
+ 
+ vmlinux-dirs	:= $(patsubst %/,%,$(filter %/, $(init-y) $(init-m) \
+ 		     $(core-y) $(core-m) $(drivers-y) $(drivers-m) \
+diff --git arch/x86/syscalls/syscall_32.tbl arch/x86/syscalls/syscall_32.tbl
+index 7a35a6e..b66df30 100644
+--- arch/x86/syscalls/syscall_32.tbl
++++ arch/x86/syscalls/syscall_32.tbl
+@@ -356,3 +356,4 @@
+ 347	i386	process_vm_readv	sys_process_vm_readv		compat_sys_process_vm_readv
+ 348	i386	process_vm_writev	sys_process_vm_writev		compat_sys_process_vm_writev
+ 349	i386	kcmp			sys_kcmp
++350	i386	sys_hello		sys_hello
+diff --git include/asm-generic/unistd.h include/asm-generic/unistd.h
+index 991ef01..3f5de48 100644
+--- include/asm-generic/unistd.h
++++ include/asm-generic/unistd.h
+@@ -691,6 +691,8 @@ __SC_COMP(__NR_process_vm_readv, sys_process_vm_readv, \
+ #define __NR_process_vm_writev 271
+ __SC_COMP(__NR_process_vm_writev, sys_process_vm_writev, \
+           compat_sys_process_vm_writev)
++#define __NR_sys_hello 272
++__SYSCALL(__NR_sys_hello, sys_hello)
+ 
+ #undef __NR_syscalls
+ #define __NR_syscalls 272
+diff --git include/linux/syscalls.h include/linux/syscalls.h
+index 19439c7..857dd69 100644
+--- include/linux/syscalls.h
++++ include/linux/syscalls.h
+@@ -860,4 +860,5 @@ asmlinkage long sys_process_vm_writev(pid_t pid,
+ 
+ asmlinkage long sys_kcmp(pid_t pid1, pid_t pid2, int type,
+ 			 unsigned long idx1, unsigned long idx2);
++asmlinkage long sys_hello(void);
+ #endif
