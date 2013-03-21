@@ -25,13 +25,13 @@ int main(int argc, char *argv[]) {
     } else if (pid == 0) {
         /* Child process. */
         printf("Running...\n");
-	if (strcmp("cd", command) == 0) {
-		printf("We have cd\n");
-	} else if ('&' == command[strlen(command)-1]) {
-		printf("We have a &\n");
-	} else {
+	    if (strcmp("cd", command) == 0) {
+		    printf("We have cd\n");
+	    } else if ('&' == command[strlen(command)-1]) {
+		    printf("We have a &\n");
+	    } else {
         	execlp(command, command, NULL);
-	}
+	    }
     } else {
         /* Parent process. */
         int result;
