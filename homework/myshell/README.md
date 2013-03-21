@@ -4,9 +4,9 @@ Implement your own command-line operating system shell. You may extend the `fork
 
 In addition to the basic command prompt loop for entering a command then executing it (including its arguments), implement the following two features:
 
-* Let a command ending with & run concurrently with the shell (i.e., just like bash).
+* Let a command ending with & run concurrently with the shell (i.e., just like `bash`).
 * Make sure that the cd command works correctly.
-* Add an “easter egg” to your shell so that, if the user types secret-system-call, it invokes the system call that you added to the kernel in Assignment 0312.
+* Add an “easter egg” to your shell so that, if the user types `secret-system-call`, it invokes the system call that you added to the kernel in Assignment 0312.
 
 Commit and push your code to your git repository under `homework/myshell`.
 
