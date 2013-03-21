@@ -7,7 +7,7 @@
  * This program demonstrates the use of the fork() and exec()
  * functions.
  */
-int main() {
+int main(int argc, char *argv[]) {
     /* String to hold the command to run. */
     char command[256];
     printf("Enter the command to run: ");
@@ -25,7 +25,13 @@ int main() {
     } else if (pid == 0) {
         /* Child process. */
         printf("Running...\n");
-        execlp(command, command, NULL);
+	if (strcmp("cd", command) == 0) {
+		printf("We have cd\n");
+	} else if ('&' == command[strlen(command)-1]) {
+		printf("We have a &\n");
+	} else {
+        	execlp(command, command, NULL);
+	}
     } else {
         /* Parent process. */
         int result;
