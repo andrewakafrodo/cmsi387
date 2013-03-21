@@ -8,7 +8,7 @@ Use long-running invocations (i.e., huge numbers) of the `thread-java` and/or `t
 
 **Mac OS**
 
-I invoked `thread-java` on my Mac and I sent the program to the backgorund with the keyboard command `CTRL-Z`. This is seen in the first image and this satisfies question number 1. I then opened up my Activity Monitor application to see how many threads the program was using. The second image shows my Activity Monitor window and it satisfies question number 2. As one can see from the image, the invokation had 21 threads.
+I invoked `thread-java` on my Mac and I sent the program to the backgorund with the keyboard command `CTRL-Z`. I ran the command `ls -sl` to produce some output. This is seen in the first image and this satisfies question number 1. I then opened up my Activity Monitor application to see how many threads the program was using. The second image shows my Activity Monitor window and it satisfies question number 2. As one can see from the image, the invokation had 21 threads.
 
 ![MacTerminal](https://github.com/frodosamoa/csmi387/blob/master/homework/csi-process/MacTerminal.png?raw=true)
 
