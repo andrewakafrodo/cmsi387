@@ -48,3 +48,23 @@ int main () {
 
     return 0;
 }
+
+/* 
+
+main(){
+infinite loop 
+    prompt for input
+    foo=fork()
+    if(foo>0) //parent process
+        if they used backgrounding &
+            continue. <-- this is the "keyword" continue, go to next loop iteration
+        else if they didn't "background," this is a normal command
+            waitpid(foo,0,0); //this is a system call in C.
+            //              try "man waitpid" in terminal to learn about waitpid
+    else if(foo==0) //child process
+        do the command (involves execvp, looking for pipes)
+    else //fork returned a negative value
+        printf("fork error\n");
+        return -1; //indicates error
+return 0 //indicates success
+} //end main()
