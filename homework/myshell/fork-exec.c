@@ -8,7 +8,7 @@
  * functions.
  */
 // JD: Not much to say here yet...things are still very preliminary.
-int main () {
+int main (int argc, char*argv[]) {
     /* String to hold the command to run. */
     char command[256];
 	char argument[256];
@@ -16,6 +16,7 @@ int main () {
     printf("Enter the command to run: ");
     scanf("%s", command);//, argument);
 	printf("%s\n", command);
+    printf("%d", argc);
 	//printf("%s\n", argument);
 
 
