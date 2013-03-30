@@ -7,6 +7,7 @@
  * This program demonstrates the use of the fork() and exec()
  * functions.
  */
+// JD: Not much to say here yet...things are still very preliminary.
 int main () {
     /* String to hold the command to run. */
     char command[256];
@@ -49,6 +50,30 @@ int main () {
     return 0;
 }
 
+// JD: This sketch is generally in the right direction, but I do have some
+//     points to raise at this stage (some of these issues are also already
+//     in your code above, so take note):
+//
+//     - Remember that fork *creates a new process*.  So you should put
+//       some thought into precisely when a new process is actually needed.
+//       Certainly you need a new process when executing a command, because
+//       otherwise that executable will wipe out the current code.  But do
+//       you need a process to cd?  To make your secret system call?
+//
+//     - Related is the issue of the &.  When should you catch it?  And if
+//       you do catch it, how should it affect command execution?  This
+//       relates to my third caution, which is...
+//
+//     - Make sure you fully understand what the exec function needs for
+//       its arguments, and process the user's command input accordingly.
+//       Remember, the way the & works, it affects solely whether the
+//       launched process runs concurrently.  It is not officially an
+//       "argument" that the new executable receives.
+//
+//     One last thing I guess---In the end, you are modeling the behavior
+//     of bash.  So, when in doubt, ask WWBD?  :)  Try something in bash
+//     to see what it does, and that will give you a sense for what your
+//     shell needs to do.
 /* 
 
 main(){
