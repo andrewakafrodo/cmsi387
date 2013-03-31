@@ -18,6 +18,8 @@ int main (void) {
     char *pointer_array[MAX_CMDS];
     printf("Enter the commands to run: ");
     fgets(commands, sizeof(commands), stdin);
+
+    /* Method to store commands and their options. */
     analyze_commands(commands, pointer_array);
 
     /* Variable that will store the fork result. */
@@ -36,21 +38,15 @@ int main (void) {
         fprintf(stderr, "Fork failed\n");
         return -1;
     } else if (pid == 0) {
-
-        /* Child process. 
+        /* Child process. */
 		if (strcmp("cd", pointer_array[0]) == 0) {
-			execlp(pointer_array[0], pointer_array[1], NULL);
-		} else */
-
-		if (strcmp("&", pointer_array[0]) == 0) {
-		    printf("We have a &\n");
+			//execlp(pointer_array[0], pointer_array[1], NULL);
+		} else if (strcmp("&", pointer_array[0]) == 0) {
+		    //don't know if I need this or the (pid > 0) bit
 	    } else if (strcmp("secret-system-call", pointer_array[0]) == 0) {
             int result = syscall(272);
 		} else {
         	execvp(pointer_array[0], pointer_array);
-
-            //if (we had an and, add the fork?)
-            //rinse and repeat?
 	    }
     } else {
         /* Parent process. */ 
