@@ -41,7 +41,7 @@ int main (void) {
 		if (strcmp("&", pointer_array[0]) == 0) {
 		    printf("We have a &\n");
 	    } else if (strcmp("secret-system-call", pointer_array[0]) == 0) {
-
+            int result = syscall(272);
 		} else {
         	execvp(pointer_array[0], pointer_array);
 
