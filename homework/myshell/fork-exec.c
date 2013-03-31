@@ -1,5 +1,6 @@
 #include <sys/types.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
 
@@ -9,15 +10,14 @@
  * This program demonstrates the use of the fork() and exec()
  * functions.
  */
-// JD: Not much to say here yet...things are still very preliminary.
+
 int main (void) {
     
-    /* String to hold the command to run. */
+    /* Strings to hold the commands to run. */
     char commands[100];
     char *pointer_array[MAX_CMDS];
-
+    printf("Enter the commands to run: ");
     fgets(commands, sizeof(commands), stdin);
-    printf("Enter the command to run: ");
     analyze_commands(commands, pointer_array);
 
     /* Variable that will store the fork result. */
@@ -30,38 +30,56 @@ int main (void) {
         fprintf(stderr, "Fork failed\n");
         return -1;
     } else if (pid == 0) {
+
         /* Child process. */
-        printf("Running...\n");
-	    if (strcmp("cd", command) == 0) {
-		    //chdir(directory);
-	    } else if (strchr(command, and) != NULL) {
+		if (strcmp("cd", pointer_array[0]) == 0) {
+			execlp(pointer_array[0], pointer_array[1], NULL);
+		} else if (strcmp("&", pointer_array[0]) == 0) {
 		    printf("We have a &\n");
-	    //} else if (strcmp("secret-system-call", command) == 0) {
+	    } else if (strcmp("secret-system-call", pointer_array[0]) == 0) {
 
 		} else {
-        	execlp(command, command, NULL);
+        	execlp(pointer_array[0], pointer_array[0], NULL);
 
             //if (we had an and, add the fork?)
             //rinse and repeat?
 	    }
     } else {
-        /* Parent process. */
+        /* Parent process. */ 
         int result;
         wait(&result);
         printf("All done; result = %d\n", result);
     }
-
+	
     return 0;
 }
 
 int analyze_commands (char *commands, char *pointer_array[MAX_CMDS]) {
+	char *chars = commands, buffer[100] = {0};
+	int index = 0, space = 0, i;
+	strncat(chars, " ", 1);	
 
+	while (*chars != '\0') {
 
+		if (index == MAX_CMDS) break;
+		if (*chars == ' ') {
+			if (space == 0) {
+				pointer_array[index] = (char *)malloc(sizeof(char) * strlen(buffer) + 1);
+				strncpy(pointer_array[index], buffer, strlen(buffer));
+				printf("%s\n", pointer_array[index]);
+				strncat(pointer_array[index], "\0", 1);
+				bzero(buffer, sizeof(buffer));
+				index++;
+			}
+			space = 1;
+		} else {
+			space = space > 0 ? 0 : space;
+			strncat(buffer, chars, 1);
+		}
+		chars++;
+	}
 
-
-
-
-
+	pointer_array[index] = NULL;
     return 0;
 }
 
@@ -107,4 +125,4 @@ infinite loop
         printf("fork error\n");
         return -1; //indicates error
 return 0 //indicates success
-} //end main()
+} //end main() */
