@@ -3,22 +3,22 @@
 #include <unistd.h>
 #include <string.h>
 
+#define MAX_CMDS 10
+
 /**
  * This program demonstrates the use of the fork() and exec()
  * functions.
  */
 // JD: Not much to say here yet...things are still very preliminary.
-int main (int argc, char*argv[]) {
+int main (void) {
+    
     /* String to hold the command to run. */
-    char command[256];
-	char argument[256];
-	char and = '&';
-    printf("Enter the command to run: ");
-    scanf("%s", command);//, argument);
-	printf("%s\n", command);
-    printf("%d", argc);
-	//printf("%s\n", argument);
+    char commands[100];
+    char *pointer_array[MAX_CMDS];
 
+    fgets(commands, sizeof(commands), stdin);
+    printf("Enter the command to run: ");
+    analyze_commands(commands, pointer_array);
 
     /* Variable that will store the fork result. */
     pid_t pid;
@@ -40,6 +40,9 @@ int main (int argc, char*argv[]) {
 
 		} else {
         	execlp(command, command, NULL);
+
+            //if (we had an and, add the fork?)
+            //rinse and repeat?
 	    }
     } else {
         /* Parent process. */
@@ -47,6 +50,17 @@ int main (int argc, char*argv[]) {
         wait(&result);
         printf("All done; result = %d\n", result);
     }
+
+    return 0;
+}
+
+int analyze_commands (char *commands, char *pointer_array[MAX_CMDS]) {
+
+
+
+
+
+
 
     return 0;
 }
