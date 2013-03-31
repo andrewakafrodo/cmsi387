@@ -25,21 +25,25 @@ int main (void) {
 
     /* Perform the actual fork. */
     pid = fork();
-    if (pid < 0) {
+	if (pid > 0) {
+    
+	} else if (pid < 0) {
         /* Error condition. */
         fprintf(stderr, "Fork failed\n");
         return -1;
     } else if (pid == 0) {
 
-        /* Child process. */
+        /* Child process. 
 		if (strcmp("cd", pointer_array[0]) == 0) {
 			execlp(pointer_array[0], pointer_array[1], NULL);
-		} else if (strcmp("&", pointer_array[0]) == 0) {
+		} else */
+
+		if (strcmp("&", pointer_array[0]) == 0) {
 		    printf("We have a &\n");
 	    } else if (strcmp("secret-system-call", pointer_array[0]) == 0) {
 
 		} else {
-        	execlp(pointer_array[0], pointer_array[0], NULL);
+        	execvp(pointer_array[0], pointer_array);
 
             //if (we had an and, add the fork?)
             //rinse and repeat?
@@ -62,6 +66,10 @@ int analyze_commands (char *commands, char *pointer_array[MAX_CMDS]) {
 	while (*chars != '\0') {
 
 		if (index == MAX_CMDS) break;
+		if (*chars == '\n') {
+			chars++;
+			continue;
+		}
 		if (*chars == ' ') {
 			if (space == 0) {
 				pointer_array[index] = (char *)malloc(sizeof(char) * strlen(buffer) + 1);
