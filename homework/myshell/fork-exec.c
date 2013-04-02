@@ -40,11 +40,13 @@ int main (void) {
     } else if (pid == 0) {
         /* Child process. */
 		if (strcmp("cd", pointer_array[0]) == 0) {
-			//execlp(pointer_array[0], pointer_array[1], NULL);
+			int result = chdir(pointer_array[1]);
 		} else if (strcmp("&", pointer_array[0]) == 0) {
 		    //don't know if I need this or the (pid > 0) bit
 	    } else if (strcmp("secret-system-call", pointer_array[0]) == 0) {
             int result = syscall(272);
+        } else if (strcmp("exit", pointer_array[0]) == 0) {
+            exit(0);
 		} else {
         	execvp(pointer_array[0], pointer_array);
 	    }
