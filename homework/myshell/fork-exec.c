@@ -73,13 +73,13 @@ int main (void) {
 		/* Put the prompt string to standard out */
 		fputs(prompt, stdout);
 
-		/* Gets the commands from standard input. */
+		/* Gets the command from standard input. */
 	    fgets(commands, sizeof(commands), stdin);
 
-	    /* Method to store commands and their options. */
+	    /* Method to store command and their option(s). */
 	    analyze_commands(commands, pointer_array);
 
-		/* Checks if commands are special case. */
+		/* Checks if command is special case. */
 		if (strcmp("cd", pointer_array[0]) == 0) {
 			int result = chdir(pointer_array[1]);
 		} else if (strcmp("exit", pointer_array[0]) == 0) {
@@ -109,5 +109,3 @@ int main (void) {
 	}
     return 0;
 }
-
-
