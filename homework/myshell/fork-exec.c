@@ -67,9 +67,9 @@ int main (void) {
 
 
 	if (strcmp("cd", pointer_array[0]) == 0) {
-		changeDirectory(pointer_array[1]);
-	} else if (strcmp("exit", pointer_array[1]) == 0) {
-		break;
+		int result = chdir(pointer_array[1]);
+	} else if (strcmp("exit", pointer_array[0]) == 0) {
+		exit(0);
 	} else if (strcmp("secret-system-call", pointer_array[0]) == 0) {
         int result = syscall(272);
 	}
@@ -91,7 +91,6 @@ int main (void) {
         /* Parent process. */ 
         int result;
         wait(&result);
-        printf("All done; result = %d\n", result);
     }
 	
 	}
