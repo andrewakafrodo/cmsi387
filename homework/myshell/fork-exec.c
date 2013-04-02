@@ -46,7 +46,7 @@ int analyze_commands (char *commands, char *pointer_array[MAX_CMDS]) {
 		chars++;
 	}
 
-	/* Last element will be null, for ease of use with execlp(). */
+	/* Last element will be null, for potential ease of use with execlp(). */
 	pointer_array[index] = NULL;
     return 0;
 }
@@ -78,7 +78,7 @@ int main (void) {
 
 	    /* Method to store command and their option(s). */
 	    analyze_commands(commands, pointer_array);
-
+		
 		/* Checks if command is special case. */
 		if (strcmp("cd", pointer_array[0]) == 0) {
 			int result = chdir(pointer_array[1]);
@@ -86,6 +86,8 @@ int main (void) {
 			exit(0);
 		} else if (strcmp("secret-system-call", pointer_array[0]) == 0) {
 	        long int result = syscall(350);
+		} else if (strcmp("&", pointer_array[0]) == 0) {
+			//not sure what to put here
 		} else {
 		    /* Variable that will store the fork result. */
 		    pid_t pid;
