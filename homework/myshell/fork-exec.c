@@ -9,7 +9,7 @@
 /**
  *	This method "tokenizes" the input given from the user. It does not include
  *  spaces and new line characters. This stores everying in a an array of array of
- *  characters. This method was outlined by user
+ *  characters. This method was outlined by stackoverflow user Hussain_J6! Thanks!
  */
 
 int analyze_commands (char *commands, char *pointer_array[MAX_CMDS]) {
