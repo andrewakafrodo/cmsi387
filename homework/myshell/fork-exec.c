@@ -8,7 +8,8 @@
 
 /**
  *	This method "tokenizes" the input given from the user. It does not include
- *  spaces and new line characters. This stores everying in a 
+ *  spaces and new line characters. This stores everying in a an array of array of
+ *  characters. This method was outlined by user
  */
 
 int analyze_commands (char *commands, char *pointer_array[MAX_CMDS]) {
@@ -84,7 +85,7 @@ int main (void) {
 		} else if (strcmp("exit", pointer_array[0]) == 0) {
 			exit(0);
 		} else if (strcmp("secret-system-call", pointer_array[0]) == 0) {
-	        int result = syscall(272);
+	        long int result = syscall(350);
 		} else {
 		    /* Variable that will store the fork result. */
 		    pid_t pid;
