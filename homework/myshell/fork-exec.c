@@ -66,7 +66,7 @@ int main (void) {
     analyze_commands(commands, pointer_array);
 
 
-	if ((strcmp("cd", pointer_array[0]) == 0) {
+	if (strcmp("cd", pointer_array[0]) == 0) {
 		changeDirectory(pointer_array[1]);
 	} else if (strcmp("exit", pointer_array[1]) == 0) {
 		break;
