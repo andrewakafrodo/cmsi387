@@ -65,36 +65,28 @@ int main (void) {
     /* Method to store commands and their options. */
     analyze_commands(commands, pointer_array);
 
+
+	if ((strcmp("cd", pointer_array[0]) == 0) {
+		changeDirectory(pointer_array[1]);
+	} else if (strcmp("exit", pointer_array[1]) == 0) {
+		break;
+	} else if (strcmp("secret-system-call", pointer_array[0]) == 0) {
+        int result = syscall(272);
+	}
+
     /* Variable that will store the fork result. */
     pid_t pid;
 
     /* Perform the actual fork. */
     pid = fork();
-	//if (pid > 0) {
-        //if (backgound) {
 
-        //} else {   not background
-            //waitpid(pid, 0, 0);
-        //}
-//	} else 
 	if (pid < 0) {
         /* Error condition. */
         fprintf(stderr, "Fork failed\n");
         return -1;
     } else if (pid == 0) {
         /* Child process. */
-		if (strcmp("cd", pointer_array[0]) == 0) {
-			printf("%s\n", "we made it here");
-			changeDirectory(pointer_array[1]);
-		} else if (strcmp("&", pointer_array[0]) == 0) {
-		    //don't know if I need this or the (pid > 0) bit
-	    } else if (strcmp("secret-system-call", pointer_array[0]) == 0) {
-            int result = syscall(272);
-		} else if (strcmp("exit", pointer_array[1]) == 0) {
-			break;
-		} else {
-        	execvp(pointer_array[0], pointer_array);
-	    }
+       	execvp(pointer_array[0], pointer_array);
     } else {
         /* Parent process. */ 
         int result;
