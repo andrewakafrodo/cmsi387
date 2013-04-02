@@ -65,14 +65,14 @@ int main (void) {
     /* Method to store commands and their options. */
     analyze_commands(commands, pointer_array);
 
-
+	/* Checks if commands are special case. */
 	if (strcmp("cd", pointer_array[0]) == 0) {
 		int result = chdir(pointer_array[1]);
 	} else if (strcmp("exit", pointer_array[0]) == 0) {
 		exit(0);
 	} else if (strcmp("secret-system-call", pointer_array[0]) == 0) {
         int result = syscall(272);
-	}
+	} else {
 
     /* Variable that will store the fork result. */
     pid_t pid;
@@ -92,7 +92,7 @@ int main (void) {
         int result;
         wait(&result);
     }
-	
+	}
 	}
     return 0;
 }
