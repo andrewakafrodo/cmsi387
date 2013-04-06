@@ -24,9 +24,12 @@ Knuth provided a modification to Dijkstra's algorithm which guaranteed access by
 
 The `L3` field is important and different from Djikstra's initial solution and Knuth's initial comment because th system cannot be blocked because non of the computers contending for access to its critical section has yet passed its statement `L3`.
 
-Although I have no ready many scholarly computer science articles, I do believe that this one is written well. It comes from a not-for-profit organization chartered to work in the public interest. As a national resource, the MITRE Corporation applies their expertise in systems engineering, information technology, operational concepts, and enterprise modernization to address their sponsors' critical needs. The writers are only credited for writing this one paper on the ACM Digital Library so that might detract from the quality of the work.
+Although I have no ready many scholarly computer science articles, I do believe that this one is written well. It comes from a not-for-profit organization chartered to work in the public interest. As a national resource, the MITRE Corporation applies their expertise in systems engineering, information technology, operational concepts, and enterprise modernization to address their sponsors' critical needs. The writers are only credited for writing this one paper on the ACM Digital Library so that might detract from the quality of the work. Yet, this paper is cited in many others, so, all in all, I would say that this paper is of high quality.
 
 ### Article 2: A new solution to the critical section problem by Howard P. Katseff
 
+This article is deirectly related to our small collection because it expands upon Djiksta's solution, Knuth's solution, and even Eisenberg and McGuire's solution. It goes even further to include solutions that are based on first-come first-served basis.
+
+Katseff's solution for first-come first-serve processes is incredibly useful because it solves the problem where certain processes that might repeatedly die and reawaken may inhibit pther processes from ever entering their critical sections. It is even more awesome because Katseff's solution does not require variables which assume arbitrarily large values.
 
 ### Article 3: A simple solution to Lamport's concurrent programming problem with linear wait by B. K. Szymanski
