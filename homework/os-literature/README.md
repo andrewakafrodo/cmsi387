@@ -11,6 +11,10 @@ Commit and push this mini-annotated bibliography in any widely-readable format t
 
 ### Article 1: Further comments on Dijkstra's concurrent programming control problem by Murray A. Eisenberg and Michael R. McGuire
 
+1. This article is connected to our small connection because Murray A. Eisenberg and Michael R. McGuire are directly commenting on Djikstra's concurrent programming control problem.
+
+2. Knuth provided a modification to Dijkstra's algorithm which guaranteed access by an individual contending computer within 2 <sup>n-1</sup> turns.
+
 ### Article 2: A new solution to the critical section problem by Howard P. Katseff
 
 ### Article 3: A simple solution to Lamport's concurrent programming problem with linear wait by B. K. Szymanski
