@@ -11,9 +11,9 @@ Commit and push this mini-annotated bibliography in any widely-readable format t
 
 ### Article 1: Further comments on Dijkstra's concurrent programming control problem by Murray A. Eisenberg and Michael R. McGuire
 
-1. This article is connected to our small connection because Murray A. Eisenberg and Michael R. McGuire are directly commenting on Djikstra's concurrent programming control problem.
+1. This article is connected to our small connection because Murray A. Eisenberg and Michael R. McGuire are directly commenting on Djikstra's concurrent programming control problem. The go over the solution that Djikstra provided and also expand upon the the comments that Donald Kunth made upon that provided solution.
 
-2. Knuth provided a modification to Dijkstra's algorithm which guaranteed access by an individual contending computer within `2<sup>n-1</sup>` turns.
+2. Knuth provided a modification to Dijkstra's algorithm which guaranteed access by an individual contending computer within 2<sup>n-1</sup>-1 turns. This paper expands on that modification and insures that a computer doesn't need to wait more that n-1 turns. They do this by changing the conditions in the `for` loop in the `L2` field to stepping up until 1. They also added this new field into `L3`: L3: `if control [k] ≠ 0 and k ≠ i then goto L0;`.
 
 ### Article 2: A new solution to the critical section problem by Howard P. Katseff
 
