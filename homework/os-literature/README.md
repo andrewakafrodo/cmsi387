@@ -11,16 +11,20 @@ Commit and push this mini-annotated bibliography in any widely-readable format t
 
 ### Article 1: Further comments on Dijkstra's concurrent programming control problem by Murray A. Eisenberg and Michael R. McGuire
 
-1. This article is connected to our small connection because Murray A. Eisenberg and Michael R. McGuire are directly commenting on Djikstra's concurrent programming control problem. The go over the solution that Djikstra provided and also expand upon the the comments that Donald Kunth made upon that provided solution.
+This article is connected to our small connection because Murray A. Eisenberg and Michael R. McGuire are directly commenting on Djikstra's concurrent programming control problem. The go over the solution that Djikstra provided and also expand upon the the comments that Donald Kunth made upon that provided solution.
 
-2. Knuth provided a modification to Dijkstra's algorithm which guaranteed access by an individual contending computer within 2<sup>n-1</sup>-1 turns. This paper expands on that modification and insures that a computer doesn't need to wait more that n-1 turns. They do this by changing the conditions in the `for` loop in the `L2` field to stepping up until 1. They also added this new field into `L3`: `if control [k] ≠ 0 and k ≠ i then goto L0;`. Then they added this to the `L5` field:
- 
+Knuth provided a modification to Dijkstra's algorithm which guaranteed access by an individual contending computer within 2<sup>n-1</sup>-1 turns. This paper expands on that modification and insures that a computer doesn't need to wait more that n-1 turns. They do this by changing the conditions in the `for` loop in the `L2` field to stepping up until 1. They also added this new field into `L3`: `if control [k] ≠ 0 and k ≠ i then goto L0;`. Then they added this to the `L5` field:
+
 	L5: for j := k step 1 until N, 1 step 1 until k do
-	if j ≠ k and control [j] ~ 0 then
-	begin
-	k := j;
-	goto L6
-	end;
+		if j ≠ k and control [j] ~ 0 then
+			begin
+				k := j;
+				goto L6
+			end;
+
+The `L3` field is important and different from Djikstra's initial solution and Knuth's initial comment because th system cannot be block because non of the computers contending for access to its critical section has yet passed its statement `L3`.
+
+Although I have no ready many scholarly computer science articles, I do believe that this one is written well. It comes from a not-for-profit organization chartered to work in the public interest. As a national resource, the MITRE Corporation applies their expertise in systems engineering, information technology, operational concepts, and enterprise modernization to address their sponsors' critical needs. The writers are only credited for writing this one paper on the ACM Digital Library so that might detract from the quality of the work.
 
 ### Article 2: A new solution to the critical section problem by Howard P. Katseff
 
