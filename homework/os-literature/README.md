@@ -9,8 +9,8 @@ Continue our journey through seminal operating systems literature by using libra
 You are not expected to fully understand every thing in every piece that you find, but should have some kind of idea.
 Commit and push this mini-annotated bibliography in any widely-readable format to `homework/os-literature`. Provide full citations for your found work. If you can supply full-text copies of these items, that would be great also.
 
-## Article 1: `Further comments on Dijkstra's concurrent programming control problem` by `Murray A. Eisenberg` and `Michael R. McGuire`
+### Article 1: Further comments on Dijkstra's concurrent programming control problem by Murray A. Eisenberg and Michael R. McGuire
 
-## Article 2: `A new solution to the critical section problem` by `Howard P. Katseff`
+### Article 2: A new solution to the critical section problem by Howard P. Katseff
 
-## Article 3: `A simple solution to Lamport's concurrent programming problem with linear wait` by `B. K. Szymanski`
+### Article 3: A simple solution to Lamport's concurrent programming problem with linear wait by B. K. Szymanski
