@@ -13,7 +13,7 @@ Commit and push this mini-annotated bibliography in any widely-readable format t
 
 1. This article is connected to our small connection because Murray A. Eisenberg and Michael R. McGuire are directly commenting on Djikstra's concurrent programming control problem.
 
-2. Knuth provided a modification to Dijkstra's algorithm which guaranteed access by an individual contending computer within 2 <sup>n-1</sup> turns.
+2. Knuth provided a modification to Dijkstra's algorithm which guaranteed access by an individual contending computer within `2<sup>n-1</sup>` turns.
 
 ### Article 2: A new solution to the critical section problem by Howard P. Katseff
 
