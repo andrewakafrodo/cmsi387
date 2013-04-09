@@ -10,7 +10,7 @@
 /**
  *	This method "tokenizes" the input given from the user. It does not include
  *  spaces and new line characters. This stores everying in a an array of array of
- *  characters. This method was outlined by stackoverflow user Hussain_J6! Thanks!
+ *  characters.
  */
 
 int tokenize_commands (char *commands, char *arguments[]) {
@@ -57,36 +57,39 @@ int main (void) {
 
 		/* Gets the command from standard input. */
 	    fgets(commands, sizeof(commands), stdin);
+		commands[strlen(commands)-1] = '\0';
+		if (strlen(commands) != 0) {
+	    	/* Method to store command and their option(s). */
+	    	waitResult = tokenize_commands(commands, arguments);
 
-	    /* Method to store command and their option(s). */
-	    waitResult = tokenize_commands(commands, arguments);
+			/* Checks if command is special case. */
+			if (strcmp("cd", arguments[0]) == 0) {
+				chdir(arguments[1]);
+			} else if (strcmp("exit", arguments[0]) == 0) {
+				return 1;
+			} else if (strcmp("secret-system-call", arguments[0]) == 0) {
+	        	long int result = syscall(350);
+			} else {
+		   		/* Variable that will store the fork result. */
+		    	pid_t pid;
 
-		/* Checks if command is special case. */
-		if (strcmp("cd", arguments[0]) == 0) {
-			chdir(arguments[1]);
-		} else if (strcmp("exit", arguments[0]) == 0) {
-			return 1;
-		} else if (strcmp("secret-system-call", arguments[0]) == 0) {
-	        long int result = syscall(350);
-		} else {
-		    /* Variable that will store the fork result. */
-		    pid_t pid;
+		    	/* Perform the actual fork. */
+		    	pid = fork();
 
-		    /* Perform the actual fork. */
-		    pid = fork();
-
-			if (pid < 0) {
-		        /* Error condition. */
-		        fprintf(stderr, "Fork failed\n");
-		        return -1;
-		    } else if (pid == 0) {
-		        /* Child process. */
-		       	execvp(arguments[0], arguments);
-		    } else {
-		        /* Parent process. */ 
-		        int result;
-				if (!waitResult) wait(&result);
-		    }
+				if (pid < 0) {
+		        	/* Error condition. */
+		        	fprintf(stderr, "Fork failed\n");
+		        	return -1;
+		    	} else if (pid == 0) {
+		        	/* Child process. */
+		       		execvp(arguments[0], arguments);
+		    	} else {
+		        	/* Parent process. */ 
+		        	int result;
+					//if (!waitResult)
+					wait(&result);
+		    	}
+			}
 		}
 	}
     return 0;
