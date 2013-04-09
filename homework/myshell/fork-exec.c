@@ -26,7 +26,6 @@ int tokenize_commands (char *commands, char *arguments[]) {
 	}
 
 	arguments[index] = NULL;
-	if (waitPresent) return 1;
 	return 0;
 }
 
@@ -58,9 +57,16 @@ int main (void) {
 		/* Gets the command from standard input. */
 	    fgets(commands, sizeof(commands), stdin);
 		commands[strlen(commands)-1] = '\0';
+
+		/* Removed trailing spaces. */
+			//TODO
+		/* Check for '&' character. If so, remove it. */
+			//TODO
+		/* Remove any more trailing spaces. */
+			//TODO
 		if (strlen(commands) != 0) {
 	    	/* Method to store command and their option(s). */
-	    	waitResult = tokenize_commands(commands, arguments);
+	    	tokenize_commands(commands, arguments);
 
 			/* Checks if command is special case. */
 			if (strcmp("cd", arguments[0]) == 0) {
