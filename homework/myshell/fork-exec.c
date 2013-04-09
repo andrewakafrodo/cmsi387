@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <string.h>
 
-#define MAX_CMDS 64
+#define MAX_CMDS 10
 
 // Look up:
 // - strtok  null terminating check
@@ -16,53 +16,38 @@
  *  characters. This method was outlined by stackoverflow user Hussain_J6! Thanks!
  */
 
-int tokenize_commands (char *commands, char *pointer_array[]) {
-	char *chars = commands, buffer[100] = {0};
-	int index = 0, space = 0, i;
-	//strncat(chars, " ", 1);	
+int tokenize_commands (char *commands, char *arguments[]) {
+	int index = 0;
+	int i = 0;
+	int waitPresent = 0;	
 
-	/* While there are characters left... */
+	/* While there are characters left. */
 	while (*chars != '\0') {
-printf("Looking at '%c'\n", *chars);
 
 		/* More than the maximum amount of "commands"? Break. */
 		if (index == MAX_CMDS) break;
 
-		/* If we have a new line, continue on! */
-		if (*chars == '\n') {
-			chars++;
-			continue;
-		}
+		/* New line character? Break. */
+		if (*chars == '\n') break;
 
 		/* If we have a space, time to finish storing our command. */
 		if (*chars == ' ') {
-			if (space == 0) {
-				pointer_array[index] = (char *)malloc(sizeof(char)*strlen(buffer) + 1);
-				strncpy(pointer_array[index], buffer, strlen(buffer));
-				strncat(pointer_array[index], "\0", 1);
-				bzero(buffer, sizeof(buffer));
-				index++;
-			}
-			space = 1;
+
 		} else {
-			space = space > 0 ? 0 : space;
-			strncat(buffer, chars, 1);
+			
 		}
 		chars++;
 	}
-printf("Got out of loop\n");
-	/* Last element will be null, for potential ease of use with execlp(). */
-	pointer_array[index] = NULL;
-    return 0;
-}
 
-void changeDirectory (char *path) {
-    
-	if (0 == 0) {
-	} else if (0 == 0) {
+	/* Last element will be null, for potential ease of use with execvp(). */
+	//arguments[index] = NULL;
+	if (waitPresent) {
+    	return 0;
 	} else {
+
 	}
 }
+
 
 /**
  * This program demonstrates the use of the fork() and exec()
@@ -73,7 +58,11 @@ int main (void) {
     
     /* Strings to hold the commands to run. */
     char commands[100];
-    char *pointer_array[MAX_CMDS];
+    char *arguments[MAX_CMDS];
+
+	/* Variables to compare by. */
+	char *wait = "&";
+	int waitPresent = 0;
 
     /* Strings for the basic shell (makes it look pretty). */
 	char *prompt = "=> ";
@@ -90,21 +79,15 @@ int main (void) {
 	    fgets(commands, sizeof(commands), stdin);
 
 	    /* Method to store command and their option(s). */
-	    tokenize_commands(commands, pointer_array);
-				
-		printf("%s\n", pointer_array[0]);
+	    waitPresent = tokenize_commands(commands, arguments);
 		
 		/* Checks if command is special case. */
-		if (strcmp("cd", pointer_array[0]) == 0) {
-			chdir(pointer_array[1]);
-		} else if (strcmp("exit", pointer_array[0]) == 0) {
+		if (strcmp("cd", arguments[0]) == 0) {
+			chdir(arguments[1]);
+		} else if (strcmp("exit", arguments[0]) == 0) {
 			return 1;
-		} else if (pointer_array[0] == NULL) {
-			printf("caught null pointer array\n");
-		} else if (strcmp("secret-system-call", pointer_array[0]) == 0) {
+		} else if (strcmp("secret-system-call", arguments[0]) == 0) {
 	        long int result = syscall(350);
-		} else if (strcmp("&", pointer_array[0]) == 0) {
-			//not sure what to put here
 		} else {
 		    /* Variable that will store the fork result. */
 		    pid_t pid;
@@ -122,7 +105,7 @@ int main (void) {
 		    } else {
 		        /* Parent process. */ 
 		        int result;
-		        wait(&result);
+				if (!waitPresent) wait(&result);
 		    }
 		}
 	}
