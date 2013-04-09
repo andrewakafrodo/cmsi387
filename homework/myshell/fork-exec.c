@@ -6,19 +6,24 @@
 
 #define MAX_CMDS 64
 
+// Look up:
+// - strtok  null terminating check
+// - isspace
+
 /**
  *	This method "tokenizes" the input given from the user. It does not include
  *  spaces and new line characters. This stores everying in a an array of array of
  *  characters. This method was outlined by stackoverflow user Hussain_J6! Thanks!
  */
 
-int analyze_commands (char *commands, char *pointer_array[MAX_CMDS]) {
+int tokenize_commands (char *commands, char *pointer_array[]) {
 	char *chars = commands, buffer[100] = {0};
 	int index = 0, space = 0, i;
-	strncat(chars, " ", 1);	
+	//strncat(chars, " ", 1);	
 
 	/* While there are characters left... */
 	while (*chars != '\0') {
+printf("Looking at '%c'\n", *chars);
 
 		/* More than the maximum amount of "commands"? Break. */
 		if (index == MAX_CMDS) break;
@@ -32,7 +37,7 @@ int analyze_commands (char *commands, char *pointer_array[MAX_CMDS]) {
 		/* If we have a space, time to finish storing our command. */
 		if (*chars == ' ') {
 			if (space == 0) {
-				pointer_array[index] = (char *)malloc(sizeof(char)*strlen(buffer)+1);
+				pointer_array[index] = (char *)malloc(sizeof(char)*strlen(buffer) + 1);
 				strncpy(pointer_array[index], buffer, strlen(buffer));
 				strncat(pointer_array[index], "\0", 1);
 				bzero(buffer, sizeof(buffer));
@@ -45,10 +50,18 @@ int analyze_commands (char *commands, char *pointer_array[MAX_CMDS]) {
 		}
 		chars++;
 	}
-
+printf("Got out of loop\n");
 	/* Last element will be null, for potential ease of use with execlp(). */
 	pointer_array[index] = NULL;
     return 0;
+}
+
+void changeDirectory (char *path) {
+    
+	if (0 == 0) {
+	} else if (0 == 0) {
+	} else {
+	}
 }
 
 /**
@@ -77,13 +90,17 @@ int main (void) {
 	    fgets(commands, sizeof(commands), stdin);
 
 	    /* Method to store command and their option(s). */
-	    analyze_commands(commands, pointer_array);
+	    tokenize_commands(commands, pointer_array);
+				
+		printf("%s\n", pointer_array[0]);
 		
 		/* Checks if command is special case. */
 		if (strcmp("cd", pointer_array[0]) == 0) {
-			int result = chdir(pointer_array[1]);
+			chdir(pointer_array[1]);
 		} else if (strcmp("exit", pointer_array[0]) == 0) {
-			exit(0);
+			return 1;
+		} else if (pointer_array[0] == NULL) {
+			printf("caught null pointer array\n");
 		} else if (strcmp("secret-system-call", pointer_array[0]) == 0) {
 	        long int result = syscall(350);
 		} else if (strcmp("&", pointer_array[0]) == 0) {
