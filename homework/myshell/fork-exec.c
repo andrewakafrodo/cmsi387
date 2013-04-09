@@ -17,35 +17,21 @@
  */
 
 int tokenize_commands (char *commands, char *arguments[]) {
-	int index = 0;
-	int i = 0;
+
 	int waitPresent = 0;	
-
-	/* While there are characters left. */
-	while (*chars != '\0') {
-
-		/* More than the maximum amount of "commands"? Break. */
-		if (index == MAX_CMDS) break;
-
-		/* New line character? Break. */
-		if (*chars == '\n') break;
-
-		/* If we have a space, time to finish storing our command. */
-		if (*chars == ' ') {
-
-		} else {
-			
+	char *delim = " ";
+	char *individualArgs = strtok(commands, delim);
+	while (individualArgs != NULL) {
+		if (!isspace(individualsArgs) {
+			printf("%s\n", individualArgs);
 		}
-		chars++;
+		individualArgs = strtok(NULL, delim);
 	}
 
 	/* Last element will be null, for potential ease of use with execvp(). */
 	//arguments[index] = NULL;
-	if (waitPresent) {
-    	return 0;
-	} else {
-
-	}
+	if (waitPresent) return 1;
+	return 0;
 }
 
 
@@ -61,7 +47,6 @@ int main (void) {
     char *arguments[MAX_CMDS];
 
 	/* Variables to compare by. */
-	char *wait = "&";
 	int waitPresent = 0;
 
     /* Strings for the basic shell (makes it look pretty). */
@@ -101,7 +86,7 @@ int main (void) {
 		        return -1;
 		    } else if (pid == 0) {
 		        /* Child process. */
-		       	execvp(pointer_array[0], pointer_array);
+		       	execvp(arguments[0], arguments);
 		    } else {
 		        /* Parent process. */ 
 		        int result;
