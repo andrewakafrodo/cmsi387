@@ -56,6 +56,8 @@ int main (void) {
 
 		/* Gets the command from standard input. */
 	    fgets(commands, sizeof(commands), stdin);
+
+	    /* Set the last character to a null terminating zero */
 		commands[strlen(commands)-1] = '\0';
 
 		/* Removed trailing spaces. */
@@ -64,6 +66,9 @@ int main (void) {
 			//TODO
 		/* Remove any more trailing spaces. */
 			//TODO
+
+		/* If the length of out command is greater than zero, then let us
+		   store execute the command. If not, skip this whole loop. */
 		if (strlen(commands) != 0) {
 	    	/* Method to store command and their option(s). */
 	    	tokenize_commands(commands, arguments);
