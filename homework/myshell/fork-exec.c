@@ -7,10 +7,6 @@
 #define MAX_TKNS 10
 #define MAX_CMD_LENGTH 100
 
-// Look up:
-// - strtok  null terminating check
-// - isspace
-
 /**
  *	This method "tokenizes" the input given from the user. It does not include
  *  spaces and new line characters. This stores everying in a an array of array of
@@ -22,6 +18,7 @@ int tokenize_commands (char *commands, char *arguments[]) {
 	int waitPresent = 0;	
 	char *delim = " \n";
 	char *individualArgs = strtok(commands, delim);
+
 	while (individualArgs != NULL) {
 		arguments[index] = individualArgs;
 		individualArgs = strtok(NULL, delim);
@@ -29,11 +26,9 @@ int tokenize_commands (char *commands, char *arguments[]) {
 	}
 
 	arguments[index] = NULL;
-	printf("%d", index);
 	if (waitPresent) return 1;
 	return 0;
 }
-
 
 /**
  * This program demonstrates the use of the fork() and exec()
@@ -62,13 +57,9 @@ int main (void) {
 
 		/* Gets the command from standard input. */
 	    fgets(commands, sizeof(commands), stdin);
-		//int space = isspace(commands[0]);
-		//printf("%d", space);
-
 
 	    /* Method to store command and their option(s). */
 	    waitResult = tokenize_commands(commands, arguments);
-		
 
 		/* Checks if command is special case. */
 		if (strcmp("cd", arguments[0]) == 0) {
