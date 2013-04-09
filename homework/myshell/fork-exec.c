@@ -4,7 +4,8 @@
 #include <unistd.h>
 #include <string.h>
 
-#define MAX_CMDS 10
+#define MAX_TKNS 10
+#define MAX_CMD_LENGTH 100
 
 // Look up:
 // - strtok  null terminating check
@@ -17,19 +18,18 @@
  */
 
 int tokenize_commands (char *commands, char *arguments[]) {
-
+	int index = 0;
 	int waitPresent = 0;	
-	char *delim = " ";
+	char *delim = " \n";
 	char *individualArgs = strtok(commands, delim);
 	while (individualArgs != NULL) {
-		if (!isspace(individualsArgs) {
-			printf("%s\n", individualArgs);
-		}
+		arguments[index] = individualArgs;
 		individualArgs = strtok(NULL, delim);
+		index++;
 	}
 
-	/* Last element will be null, for potential ease of use with execvp(). */
-	//arguments[index] = NULL;
+	arguments[index] = NULL;
+	printf("%d", index);
 	if (waitPresent) return 1;
 	return 0;
 }
@@ -43,11 +43,11 @@ int tokenize_commands (char *commands, char *arguments[]) {
 int main (void) {
     
     /* Strings to hold the commands to run. */
-    char commands[100];
-    char *arguments[MAX_CMDS];
+    char commands[MAX_CMD_LENGTH];
+    char *arguments[MAX_TKNS];
 
 	/* Variables to compare by. */
-	int waitPresent = 0;
+	int waitResult = 0;
 
     /* Strings for the basic shell (makes it look pretty). */
 	char *prompt = "=> ";
@@ -62,10 +62,14 @@ int main (void) {
 
 		/* Gets the command from standard input. */
 	    fgets(commands, sizeof(commands), stdin);
+		//int space = isspace(commands[0]);
+		//printf("%d", space);
+
 
 	    /* Method to store command and their option(s). */
-	    waitPresent = tokenize_commands(commands, arguments);
+	    waitResult = tokenize_commands(commands, arguments);
 		
+
 		/* Checks if command is special case. */
 		if (strcmp("cd", arguments[0]) == 0) {
 			chdir(arguments[1]);
@@ -90,7 +94,7 @@ int main (void) {
 		    } else {
 		        /* Parent process. */ 
 		        int result;
-				if (!waitPresent) wait(&result);
+				if (!waitResult) wait(&result);
 		    }
 		}
 	}
