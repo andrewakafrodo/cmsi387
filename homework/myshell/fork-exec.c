@@ -29,6 +29,12 @@ int tokenize_commands (char *commands, char *arguments[]) {
 	return 0;
 }
 
+void changeDirectory (*directory) {
+	if (directory == NULL) {
+		chdir(HOME);
+	}
+}
+
 /**
  * This program demonstrates the use of the fork() and exec()
  * functions.
@@ -70,7 +76,7 @@ int main (void) {
 
 			/* Checks if command is special case. */
 			if (strcmp("cd", arguments[0]) == 0) {
-				chdir(arguments[1]);
+				changeDirectory(arguments[1]);
 			} else if (strcmp("exit", arguments[0]) == 0) {
 				return 1;
 			} else if (strcmp("secret-system-call", arguments[0]) == 0) {
