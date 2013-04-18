@@ -13,5 +13,11 @@ void setPageTable(pagetable *pt) {
 }
 
 int getPhysical(int logical) {
-    // TODO
+	int leftBits = ((logical & PAGEMASK) >> PAGEBITS);
+	int rightBits = (logical & PAGESIZE);
+
+	if (logical < 0 || logical >= 256) return ERR_OUT_OF_RANGE;
+	if (ptr[leftBits].valid == 0) return ERR_INVALID;
+
+    return (((ptr[leftBits].frame) << PAGEBITS) + rightBits);
 }
