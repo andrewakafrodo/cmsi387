@@ -13,13 +13,13 @@ void setPageTable(pagetable *pt) {
 }
 
 int getPhysical(int logical) {
-	/* 
-	 *These are the left most 4 bits and the right most four bits.
+	/** 
+	 * These are the left most 4 bits and the right most four bits.
 	 */
 	int leftBits = ((logical & PAGEMASK) >> PAGEBITS);
 	int rightBits = (logical & PAGESIZE);
 
-	/* 
+	/** 
 	 * These test if logical is out of range and if the page table
 	 * valid integer is 0.
 	 */
