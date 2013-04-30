@@ -1,10 +1,15 @@
 Hexdump of the image file
 =========================
 
-Here is the `hexdump` of the image file, nothing is yet specified. It is simply being uploaded for easier use between my virtual machine and normal one.
+Here is the `hexdump` of the image file, specifying has just started!
 
 	frodo@samtrefoil:~/Desktop/cmsi387/homework/csi-fs$ hexdump -C image
 	00000000  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+
+The firt big block under this text is the test disk's superblock.
+The first 32 bytes denote the inode count (in little endian). For our test disk it is 4.
+The second 32 bytes of the block denote the block count. For out test disk, it is 200 in hexadecimal and 512 in decimal.
+
 	*
 	00000400  40 00 00 00 00 02 00 00  19 00 00 00 e4 01 00 00  |@...............|
 	00000410  35 00 00 00 01 00 00 00  00 00 00 00 00 00 00 00  |5...............|
@@ -42,6 +47,9 @@ Here is the `hexdump` of the image file, nothing is yet specified. It is simply 
 	00001800  00 00 00 00 00 00 00 00  34 71 77 51 34 71 77 51  |........4qwQ4qwQ|
 	00001810  34 71 77 51 00 00 00 00  00 00 00 00 00 00 00 00  |4qwQ............|
 	00001820  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+
+The Inode structure starts here.
+
 	*
 	00001880  ed 41 e8 03 00 04 00 00  6a 78 77 51 20 77 77 51  |.A......jxwQ wwQ|
 	00001890  20 77 77 51 00 00 00 00  e8 03 04 00 02 00 00 00  | wwQ............|
@@ -92,6 +100,9 @@ Here is the `hexdump` of the image file, nothing is yet specified. It is simply 
 	*
 	00001f60  00 00 00 00 dd 7c e0 1c  00 00 00 00 00 00 00 00  |.....|..........|
 	00001f70  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+
+Here is the directory entry for the files, links, and directories that I created.
+
 	*
 	00003800  02 00 00 00 0c 00 01 02  2e 00 00 00 02 00 00 00  |................|
 	00003810  0c 00 02 02 2e 2e 00 00  0b 00 00 00 14 00 0a 02  |................|
