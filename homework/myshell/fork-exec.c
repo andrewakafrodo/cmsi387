@@ -89,21 +89,16 @@ int main (void) {
 	    /* Set the last character to a null terminating zero */
 		commands[commandLength-1] = '\0';
 		
-		/* Special case for when we have a single space. */	
-		if (strlen(commands) == 1 && commands[0] == ' ') {
-			commands[0] == '\0';
-		}
 		/* Remove the remaining trailing spaces. */
-		while (isspace(commands[strlen(commands) - 2])) {
-			printf("%s", "we are here\n");
-			commands[strlen(commands) - 2] = '\0';
-		    printf("%d\n", strlen(commands));
+		while (commands[commandLength - 2] == ' ') {
+			commands[commandLength - 2] = '\0';
+			commandLength--;
 		}
 
 		/* If the length of out command is greater than zero, then let us
 		   store execute the command. If not, skip this whole loop. */
 		if (strlen(commands) != 0) {
-
+						printf("%s", "we are hereee again\n");
 			/* Check for '&' character. If so, remove it. */
 			//TODO
 
