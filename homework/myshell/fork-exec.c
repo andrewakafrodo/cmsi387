@@ -28,26 +28,43 @@ int tokenize_commands (char *commands, char *arguments[]) {
 	arguments[index] = NULL;
 	return 0;
 }
-
-void changeDirectory (*directory) {
+/*
+void changeDirectory (char *directory) {
+	char *dir =
 	if (directory == NULL) {
-		chdir(HOME);
+		chdir((const char *) );
+	} else if (strcmp(directry, "..") == 0) {
+		chdir()
 	}
-}
+}*/
 
 /**
- * This program demonstrates the use of the fork() and exec()
+ * This method removes trailig spaces in a string.
+ */
+
+/*void removeTrailingSpaces(char *command) {
+	char *end;
+
+ 	while(isspace(*command)) command++;
+ 	//if (*command == 0) return command;
+
+ 	end = str + strlen(str) - 1;
+ 	while (end > command && ispace(*command)) command--;
+
+ 	*(command+1) = '\0';
+
+
+ }*/
+
+/**
+ * This main method demonstrates the use of the fork() and exec()
  * functions.
  */
 
-int main (void) {
-    
+int main (void) {  
     /* Strings to hold the commands to run. */
     char commands[MAX_CMD_LENGTH];
     char *arguments[MAX_TKNS];
-
-	/* Variables to compare by. */
-	int waitResult = 0;
 
     /* Strings for the basic shell (makes it look pretty). */
 	char *prompt = "=> ";
@@ -57,36 +74,52 @@ int main (void) {
 	fputs(welcome, stdout);
 
 	while (!feof(stdin)) {
+		/* Variables to compare by. */
+		int waitResult = 0;
+
 		/* Put the prompt string to standard out */
 		fputs(prompt, stdout);
 
 		/* Gets the command from standard input. */
 	    fgets(commands, sizeof(commands), stdin);
 
-	    /* Set the last character to a null terminating zero */
-		commands[strlen(commands)-1] = '\0';
+	    /* Stoes the length of commands for ease of use. */
+	    int commandLength = strlen(commands);
 
-		/* Removed trailing spaces. */
-			//TODO
-		/* Check for '&' character. If so, remove it. */
-			//TODO
-		/* Remove any more trailing spaces. */
-			//TODO
+	    /* Set the last character to a null terminating zero */
+		commands[commandLength-1] = '\0';
+		
+		/* Special case for when we have a single space. */	
+		if (strlen(commands) == 1 && commands[0] == ' ') {
+			commands[0] == '\0';
+		}
+		/* Remove the remaining trailing spaces. */
+		while (isspace(commands[strlen(commands) - 2])) {
+			printf("%s", "we are here\n");
+			commands[strlen(commands) - 2] = '\0';
+		    printf("%d\n", strlen(commands));
+		}
 
 		/* If the length of out command is greater than zero, then let us
 		   store execute the command. If not, skip this whole loop. */
 		if (strlen(commands) != 0) {
+
+			/* Check for '&' character. If so, remove it. */
+			//TODO
+
 	    	/* Method to store command and their option(s). */
 	    	tokenize_commands(commands, arguments);
 
 			/* Checks if command is special case. */
 			if (strcmp("cd", arguments[0]) == 0) {
-				changeDirectory(arguments[1]);
+				chdir(arguments[1]);
 			} else if (strcmp("exit", arguments[0]) == 0) {
 				return 1;
 			} else if (strcmp("secret-system-call", arguments[0]) == 0) {
 	        	long int result = syscall(350);
 			} else {
+
+
 		   		/* Variable that will store the fork result. */
 		    	pid_t pid;
 
