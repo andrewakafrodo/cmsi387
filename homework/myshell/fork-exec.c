@@ -48,7 +48,7 @@ int main (void) {
 
 	while (!feof(stdin)) {
 		/* Variables to compare by. */
-		int waitResult = 0;
+		int waitPresent = 0;
 
 		/* Put the prompt string to standard out */
 		fputs(prompt, stdout);
@@ -68,7 +68,15 @@ int main (void) {
 		store execute the command. If not, skip this whole loop. */
 		if (strlen(command) != 0) {
 			/* Check for '&' character. If so, remove it. */
-			//TODO
+			if (command[strlen(command) - 1] == '&') {
+				command[strlen(command) - 1] = '\0';
+				waitPresent = 1;
+
+				/* Remove any extra spaces, just in case. */
+				while (command[strlen(command) - 1] == ' ') {
+					command[strlen(command) - 1] = '\0';
+				}
+			}
 
 			/* Method to store command and their option(s). */
 			tokenize_command(command, arguments);
@@ -82,25 +90,30 @@ int main (void) {
 				long int result = syscall(350);
 			} else {
 
+				/* Variable that will store the fork result. */
+				pid_t pid;
 
-			/* Variable that will store the fork result. */
-			pid_t pid;
+				/* Perform the actual fork. */
+				pid = fork();
 
-			/* Perform the actual fork. */
-			pid = fork();
+				if (pid < 0) {
 
-			if (pid < 0) {
-				/* Error condition. */
-				fprintf(stderr, "Fork failed\n");
-				return -1;
+					/* Error condition. */
+					fprintf(stderr, "Fork failed\n");
+					return -1;
+
 				} else if (pid == 0) {
-				/* Child process. */
-				execvp(arguments[0], arguments);
+
+					/* Child process. */
+					execvp(arguments[0], arguments);
+
 				} else {
-				/* Parent process. */
-				int result;
-				//if (!waitResult)
-				wait(&result);	
+
+					/* Parent process. */
+					int result;
+					if (!waitPresent) {
+						wait(&result);	
+					}
 				}
 			}
 		}
