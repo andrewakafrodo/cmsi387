@@ -20,6 +20,7 @@ The `cd` command recieved speical mention due to the fact that for it to work, i
 
 2. Can your shell run scripts? Why or why not?
 
+My shell can not run scipts. This is the case because at this point my shell only takes a command and its arguments. I can't use anything like `|`, `>`, or `<` for this reason. A script is often more complicated than piping the output of one command into another and can contain anything from if statments to loop and more.
 
 3. Does `CTRL-D` exit your shell? Why or why not?
 
