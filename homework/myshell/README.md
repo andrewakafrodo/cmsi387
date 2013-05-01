@@ -15,7 +15,14 @@ Commit and push your code to your git repository under `homework/myshell`.
 Answer the following questions:
 
 1. Why did the `cd` command get special mention in this assignment?
+
+The `cd` command recieved speical mention due to the fact that for it to work, it must change the parent process. The only way to run this command within the shell (for the given assignment, and for the sake of our sanity) is to use the command `chdir()`. Yet, the `chdir()` function can only modify the environment of the current process. This is to say that each subshell (once the `./aout` is ran) keeps track of all of its varibles, including the current directory. Within the subshell, if one runs a `cd` command followed by a `pwd` command, one can see the current working directory change. But the moment the user exits the subshell, the user is back to the directory of where the `a.out` file is located.
+
 2. Can your shell run scripts? Why or why not?
+
+
 3. Does `CTRL-D` exit your shell? Why or why not?
+
+`CTRL-D` does exit my shell. It exits because my shell contains a `while` loop looking for an `EOF` (end-of-file). This is fortunate for me because `CTRL-D` on Linux and Mac OS X sends a signal that no more characters are available.
 
 Commit and push your answers to your git repository as a file in some widely-readable document format within the `homework/myshell` directory.
