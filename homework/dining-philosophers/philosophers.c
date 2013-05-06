@@ -59,13 +59,12 @@ void* philosophize (int philosopher) {
 		} else if (philosopher_state[philosopher] == HUNGRY) {
 			getChopstick(philosopher);
 			getChopstick(philosopher + 1);
+			randomWait(10);
 		} else {
 			releaseChopstick(philosopher);
 			releaseChopstick(philosopher + 1);
 		}
 		
-		
-
 	}
 
 }
