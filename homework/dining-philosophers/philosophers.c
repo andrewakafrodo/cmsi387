@@ -29,8 +29,42 @@ int randomWait(int bound) {
 }
 
 /**
+ * This is taken from GitHub user Dondi's bounder buffer code.
+ */
+
+void think (int philosopher) {
+	printf("Philosopher %d is thinking", philosopher);
+	randomWait(10);
+	philosopher_state[philosopher] = HUNGRY;
+}
+
+/**
+ * This is taken from GitHub user Dondi's bounder buffer code.
+ */
+
+void eat (int philosopher) {
+	getChopstick(philosopher);
+	getChopstick((philosopher + 1) % NUM);
+	philosopher_state[philosopher] = EATING;
+	printf("Philosopher %d is eating\n", philosopher);
+	randomWait(10);
+}
+
+/**
+ * This is taken from GitHub user Dondi's bounder buffer code.
+ */
+
+void doneEating (int philosopher) {
+	releaseChopstick(philosopher);
+	releaseChopstick((philosopher + 1) % NUM);
+	philosopher_state[philosopher] = THINKING;
+	printf("Philosopher %d is done eating\n", philosopher);
+}
+
+/**
  *  This lets our philosphers get a chopstick.
  */ 
+
 void getChopstick (int chopstick) {
 	pthread_mutex_lock(&chopsticks[chopstick]);
 	chopstick_state[chopstick] += 1;
@@ -41,32 +75,26 @@ void getChopstick (int chopstick) {
  */ 
 
 void releaseChopstick (int chopstick) {
-	chopstick_state[chopstick] -= 1;
 	pthread_mutex_unlock(&chopsticks[chopstick]);
-
+	chopstick_state[chopstick] -= 1;
 }
 
 /**
  *  This function will let our philosphers philosophize (eating and thinking).
  */ 
 
-void* philosophize (int philosopher) {
-
+void* philosophize (void* philosopher) {
+	int id = *(int*) philosopher;
+	printf("Let's dine!");
 	while (TRUE) {
-		if (philosopher_state[philosopher] == THINKING) {
-			randomWait(10);
-			philosopher_state[philosopher] = HUNGRY;
-		} else if (philosopher_state[philosopher] == HUNGRY) {
-			getChopstick(philosopher);
-			getChopstick(philosopher + 1);
-			randomWait(10);
-		} else {
-			releaseChopstick(philosopher);
-			releaseChopstick(philosopher + 1);
+		if (philosopher_state[id] == THINKING) {
+			think(id);
+		} else if (philosopher_state[id] == HUNGRY) {
+			eat(id);
+		} else if (philosopher_state[id] == EATING) {
+			doneEating(id);
 		}
-		
 	}
-
 }
 
 /**
@@ -85,7 +113,7 @@ int main () {
 		philosopher_number[i] = i;
 		chopstick_state[i] = 0;
 		pthread_mutex_init(&chopsticks[i], NULL);
-		pthread_create(&philosphers[i], NULL, (void *) &philosophize, (void *) philosopher_number[i]);
+		pthread_create(&philosphers[i], NULL, philosophize, &philosopher_number[i]);
 	}
 
 	/* Let us join the threads, even though we never get here. */
