@@ -17,6 +17,27 @@ int philosopher_number[NUM];
 int philosopher_state[NUM];
 int chopstick_state[NUM];
 pthread_mutex_t chopsticks[NUM];
+char philosopherString[NUM * 7];
+
+/**
+ * This function lets us see a visual representation of our philosophers.
+ */
+
+void printPhilosophers () {
+	int i;
+
+	for (i = 0; i < NUM; i++) {
+		if (philosopher_state[i] == THINKING) {
+			printf("  ^_^  ");
+		} else if (philosopher_state[i] == HUNGRY) {
+			printf("  ^o^  ");
+		} else if (philosopher_state[i] == EATING) {
+			printf(" \\^0^/ ");
+		}
+	}
+	printf("\n");
+
+}
 
 /**
  * This is taken from GitHub user Dondi's bounder buffer code.
@@ -47,36 +68,33 @@ void releaseChopstick (int chopstick) {
 }
 
 /**
- * This is taken from GitHub user Dondi's bounder buffer code.
+ * This function lets our philosophers "think".
  */
 
 void think (int philosopher) {
-	printf("Philosopher %d is thinking\n", philosopher);
-	randomWait(10);
+	randomWait(5);
 	philosopher_state[philosopher] = HUNGRY;
 }
 
 /**
- * This is taken from GitHub user Dondi's bounder buffer code.
+ * This function has a philosopher pick up some chopsticks.
  */
 
 void eat (int philosopher) {
 	getChopstick(philosopher);
 	getChopstick((philosopher + 1) % NUM);
 	philosopher_state[philosopher] = EATING;
-	printf("Philosopher %d is eating\n", philosopher);
-	randomWait(10);
+	randomWait(5);
 }
 
 /**
- * This is taken from GitHub user Dondi's bounder buffer code.
+ * This function has a philosopher put down thier chopsticks.
  */
 
 void doneEating (int philosopher) {
 	releaseChopstick(philosopher);
 	releaseChopstick((philosopher + 1) % NUM);
 	philosopher_state[philosopher] = THINKING;
-	printf("Philosopher %d is done eating\n", philosopher);
 }
 
 /**
@@ -85,8 +103,10 @@ void doneEating (int philosopher) {
 
 void* philosophize (void* philosopher) {
 	int id = *(int*) philosopher;
-	printf("Let's dine!");
+	printPhilosophers();
 	while (TRUE) {
+			printPhilosophers();
+
 		if (philosopher_state[id] == THINKING) {
 			think(id);
 		} else if (philosopher_state[id] == HUNGRY) {
