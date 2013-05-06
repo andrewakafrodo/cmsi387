@@ -29,11 +29,29 @@ int randomWait(int bound) {
 }
 
 /**
+ *  This lets our philosphers get a chopstick.
+ */ 
+
+void getChopstick (int chopstick) {
+	pthread_mutex_lock(&chopsticks[chopstick]);
+	chopstick_state[chopstick] += 1;
+}
+
+/**
+ *  This lets our philosphers release a chopstick.
+ */ 
+
+void releaseChopstick (int chopstick) {
+	pthread_mutex_unlock(&chopsticks[chopstick]);
+	chopstick_state[chopstick] -= 1;
+}
+
+/**
  * This is taken from GitHub user Dondi's bounder buffer code.
  */
 
 void think (int philosopher) {
-	printf("Philosopher %d is thinking", philosopher);
+	printf("Philosopher %d is thinking\n", philosopher);
 	randomWait(10);
 	philosopher_state[philosopher] = HUNGRY;
 }
@@ -59,24 +77,6 @@ void doneEating (int philosopher) {
 	releaseChopstick((philosopher + 1) % NUM);
 	philosopher_state[philosopher] = THINKING;
 	printf("Philosopher %d is done eating\n", philosopher);
-}
-
-/**
- *  This lets our philosphers get a chopstick.
- */ 
-
-void getChopstick (int chopstick) {
-	pthread_mutex_lock(&chopsticks[chopstick]);
-	chopstick_state[chopstick] += 1;
-}
-
-/**
- *  This lets our philosphers release a chopstick.
- */ 
-
-void releaseChopstick (int chopstick) {
-	pthread_mutex_unlock(&chopsticks[chopstick]);
-	chopstick_state[chopstick] -= 1;
 }
 
 /**
