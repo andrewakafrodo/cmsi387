@@ -6,19 +6,21 @@
 #include <string.h>
 #include <stdio.h>
 
-void eat () {
+pthread_mutex_t chopsticks;
+
+void eat (int id) {
 
 	nom nom nom
 
 }
 
-void think () {
+void think (int id) {
 
 	what is life?
 
 }
 
-void getLeftChopstick () {
+void getLeftChopstick (int id) {
 
 	if (left chops stick available) {
 		get it!
@@ -28,7 +30,7 @@ void getLeftChopstick () {
 
 }
 
-void getRightChopstick () {
+void getRightChopstick (int id) {
 
 	if (right chop stick available) {
 		get it!
@@ -38,38 +40,43 @@ void getRightChopstick () {
 
 }
 
-void putLeftChopstick () {
+void releaseLeftChopstick (int id) {
 
-	releaseLeftChopstick();
-
-}
-
-void putRightChopstick () {
-
-	releaseRightChopstick();
+	release the left chopstick
 
 }
 
-void philosophize () {
+void releaseRightChopstick (int id) {
+
+	release the right chopstick
+
+}
+
+void philosophize (int id) {
 
 	while (true) {
 		think ();
-		getLeftChopstick();
-		getRightChopstick();
 		eat();
-		putLeftChopstick();
-		putRightChopstick();
+
 	}
 
 }
 
 int main () {
 
+		sem_init(&mutex, 0, 1);
+
 	createPhilosophers();
-	creatChopsticks();
+	createChopsticks();
+
+
+	pthread_create(&chopsticks, Null, )
 
 	while (true) {
 		philosophize;
 	}
+
+	/* We shouldn't ever get here, but let us make the compiler happy. */
+	return 0;
 
 }
