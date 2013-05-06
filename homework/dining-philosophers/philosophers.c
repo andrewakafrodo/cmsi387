@@ -27,22 +27,27 @@ pthread_mutex_t chopsticks[NUM];
 void eat (int philosopher) {
 
 	getChopsticks(philosopher);
-
-
+	randomwait(10);
 	releaseChopsticks(philosopher);
 
 }
 
 /**
- *  This lets our philosphers "think".
+ *  This lets our philosphers "think". This is taken from GitHub user Dondi's bounder buffer code.
  */ 
 
-void think (int philosopher) {
+void think (int bound) {
+	randomwait(10);
+}
 
-	int i;
+/**
+ * This is taken from GitHub user Dondi's bounder buffer code.
+ */
 
-	usleep(40000);
-
+int randomwait(int bound) {
+    int wait = rand() % bound;
+    sleep(wait);
+    return wait;
 }
 
 /**
@@ -50,6 +55,7 @@ void think (int philosopher) {
  */ 
 
 void getChopsticks (int philosopher) {
+
 
 
 }
@@ -82,8 +88,8 @@ void philosophize (int philosopher) {
 
 int main () {
 
-	/* Reusable i, integer array for id, and our threads. */
-	int i, id[NUM];
+	/* Reusable i and our threads. */
+	int i;
 	pthread_t philosphers[NUM];
 
 	/* Let us initialize the mutexes. */
