@@ -6,11 +6,17 @@
 #include <string.h>
 #include <stdio.h>
 
-pthread_mutex_t chopsticks;
+#define NUM 5
+
+pthread_mutex_t chopsticks[NUM];
 
 void eat (int id) {
 
+	getLeftChopstick();
+	getRightChopstick();
 	nom nom nom
+	releaseLeftChopstick();
+	releaseRightChopstick();
 
 }
 
@@ -57,24 +63,26 @@ void philosophize (int id) {
 	while (true) {
 		think ();
 		eat();
-
 	}
 
 }
 
 int main () {
 
-		sem_init(&mutex, 0, 1);
+	/* Reusable i, integer array for id, and our threads. */
+	int i, id[NUM];
+	pthread_t tid[NUM];
 
-	createPhilosophers();
-	createChopsticks();
-
-
-	pthread_create(&chopsticks, Null, )
-
-	while (true) {
-		philosophize;
+	/* Let us initialize the mutexes. */
+	for (i = 0; i < NUM; i++) {
+		pthread_mutex_init(chopsticks[i], 0);
 	}
+
+	/* Let us start the threads. */
+	for (i = 0; i < NUM; i++) {
+		pthread_create(tid, NULL, philosophize, id)
+	}
+
 
 	/* We shouldn't ever get here, but let us make the compiler happy. */
 	return 0;
