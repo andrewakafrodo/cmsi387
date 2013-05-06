@@ -6,19 +6,27 @@
 #include <string.h>
 #include <stdio.h>
 
-void eat () {
+#define NUM 5
 
+pthread_mutex_t chopsticks[NUM];
+
+void eat (int id) {
+
+	getLeftChopstick();
+	getRightChopstick();
 	nom nom nom
+	releaseLeftChopstick();
+	releaseRightChopstick();
 
 }
 
-void think () {
+void think (int id) {
 
 	what is life?
 
 }
 
-void getLeftChopstick () {
+void getLeftChopstick (int id) {
 
 	if (left chops stick available) {
 		get it!
@@ -28,7 +36,7 @@ void getLeftChopstick () {
 
 }
 
-void getRightChopstick () {
+void getRightChopstick (int id) {
 
 	if (right chop stick available) {
 		get it!
@@ -38,38 +46,45 @@ void getRightChopstick () {
 
 }
 
-void putLeftChopstick () {
+void releaseLeftChopstick (int id) {
 
-	releaseLeftChopstick();
-
-}
-
-void putRightChopstick () {
-
-	releaseRightChopstick();
+	release the left chopstick
 
 }
 
-void philosophize () {
+void releaseRightChopstick (int id) {
+
+	release the right chopstick
+
+}
+
+void philosophize (int id) {
 
 	while (true) {
 		think ();
-		getLeftChopstick();
-		getRightChopstick();
 		eat();
-		putLeftChopstick();
-		putRightChopstick();
 	}
 
 }
 
 int main () {
 
-	createPhilosophers();
-	creatChopsticks();
+	/* Reusable i, integer array for id, and our threads. */
+	int i, id[NUM];
+	pthread_t tid[NUM];
 
-	while (true) {
-		philosophize;
+	/* Let us initialize the mutexes. */
+	for (i = 0; i < NUM; i++) {
+		pthread_mutex_init(chopsticks[i], 0);
 	}
+
+	/* Let us start the threads. */
+	for (i = 0; i < NUM; i++) {
+		pthread_create(tid, NULL, philosophize, id)
+	}
+
+
+	/* We shouldn't ever get here, but let us make the compiler happy. */
+	return 0;
 
 }
