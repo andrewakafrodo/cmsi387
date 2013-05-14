@@ -22,7 +22,7 @@ char philosopherString[NUM * 7];
 /**
  * This function lets us see a visual representation of our philosophers.
  */
-
+// JD: Cute ASCII art :)
 void printPhilosophers () {
 	int i;
 
@@ -55,6 +55,7 @@ int randomWait(int bound) {
 
 void getChopstick (int chopstick) {
 	pthread_mutex_lock(&chopsticks[chopstick]);
+    // JD: You need some error-checking code.
 	chopstick_state[chopstick] += 1;
 }
 
