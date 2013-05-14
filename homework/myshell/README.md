@@ -22,6 +22,9 @@ Answer the following questions:
 
    My shell can not run scipts. This is the case because at this point my shell only takes a command and its arguments. I can't use anything like `|`, `>`, or `<` for this reason. A script is often more complicated than piping the output of one command into another and can contain anything from if statments to loop and more.
 
+> JD: Au contraire!  I have committed a file called `script` to this directory.
+>     Compile your shell, then invoke `a.out < script`.  Et voila!
+
 3. Does `CTRL-D` exit your shell? Why or why not?
 
    `CTRL-D` does exit my shell. It exits because my shell contains a `while` loop looking for an `EOF` (end-of-file). This is fortunate for me because `CTRL-D` on Linux and Mac OS X sends a signal that no more characters are available.
